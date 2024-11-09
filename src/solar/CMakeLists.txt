@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.5)
-project(watertest_gazebo)
+project(solar)
 
 # Default to C99
 if(NOT CMAKE_C_STANDARD)
@@ -28,6 +28,9 @@ ament_python_install_package(${PROJECT_NAME})
 # Install Python executables
 install(PROGRAMS
   scripts/dummy_script.py
+  scripts/lidar_read.py
+  scripts/lidar_read_sim.py
+  scripts/robot_control.py
   DESTINATION lib/${PROJECT_NAME}
 )
 
@@ -48,10 +51,7 @@ install(TARGETS
 ################ INSTALL LAUNCH, ETC #################
 install(DIRECTORY
   # add directories here
-  config
   launch
-  rviz
-  worlds
   DESTINATION share/${PROJECT_NAME})
 
 ament_package()

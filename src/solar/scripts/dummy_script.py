@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 
-from watertest_description.dummy_module import dummy_function, dummy_var
+from solar.dummy_module import dummy_function, dummy_var
 import rclpy
 from rclpy.node import Node
 

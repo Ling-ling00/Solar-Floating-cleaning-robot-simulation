@@ -1,4 +1,4 @@
-#include "watertest_gazebo/cpp_header.hpp"
+#include "solar/cpp_header.hpp"
 
 #include <iostream>
 
