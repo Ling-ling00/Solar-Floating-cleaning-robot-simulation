@@ -1,0 +1,214 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="dummy">
+
+    <xacro:include filename="gazebo.xacro"/>
+
+    <material name="white">
+        <color rgba="1 1 1 1"/>
+    </material>
+
+    <link name="dummy"/>
+
+    <joint type="fixed" name="dummy">
+        <parent link="dummy"/>
+        <child link="body1"/>
+    </joint>
+
+    <link name="body1">
+        <visual>
+            <geometry>
+                <box size="0.6 1.4 0.05"/>
+            </geometry>
+            <material name="white"/>
+            <origin rpy="0 0 0" xyz="0 0 0.475"/>
+        </visual>
+        <collision>
+            <geometry>
+                <box size="0.6 1.4 0.05"/>
+            </geometry>
+            <origin rpy="0 0 0" xyz="0 0 0.475"/>
+        </collision>
+        <xacro:inertial_box mass="10.5" x="0.6" y="1.4" z="0.05">
+            <origin xyz="0 0 0.475" rpy="0 0 0"/>
+        </xacro:inertial_box>
+    </link>
+
+    <link name="body2">
+        <visual>
+            <geometry>
+                <box size="0.6 0.4 0.05"/>
+            </geometry>
+            <material name="white"/>
+            <origin rpy="0 0 0" xyz="0 0 0"/>
+        </visual>
+        <collision>
+            <geometry>
+                <box size="0.6 0.4 0.05"/>
+            </geometry>
+            <origin rpy="0 0 0" xyz="0 0 0"/>
+        </collision>
+        <xacro:inertial_box mass="5.5" x="0.6" y="0.4" z="0.05">
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+        </xacro:inertial_box>
+    </link>
+
+    <joint type="fixed" name="body1_2">
+        <parent link="body1"/>
+        <child link="body2"/>
+        <origin xyz="0 0.725 0.3" rpy="1.5707 0 0"/>
+    </joint>
+
+    <link name="body3">
+        <visual>
+            <geometry>
+                <box size="0.6 0.4 0.05"/>
+            </geometry>
+            <material name="white"/>
+            <origin rpy="0 0 0" xyz="0 0 0"/>
+        </visual>
+        <collision>
+            <geometry>
+                <box size="0.6 0.4 0.05"/>
+            </geometry>
+            <origin rpy="0 0 0" xyz="0 0 0"/>
+        </collision>
+        <xacro:inertial_box mass="5.5" x="0.6" y="0.4" z="0.05">
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+        </xacro:inertial_box>
+    </link>
+
+    <joint type="fixed" name="body1_3">
+        <parent link="body1"/>
+        <child link="body3"/>
+        <origin xyz="0 -0.725 0.3" rpy="1.5707 0 0"/>
+    </joint>   
+
+    <link name="left_wheel_f">
+        <visual>
+            <geometry>
+                <cylinder length="0.05" radius="0.1"/>
+            </geometry>
+            <material name="white"/>
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+        </visual>
+        <collision>
+            <geometry>
+                <cylinder length="0.05" radius="0.1"/>
+            </geometry>
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+        </collision>
+        <xacro:inertial_cylinder mass="5.5" length="0.05" radius="0.1">
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+        </xacro:inertial_cylinder>
+    </link>
+
+    <link name="right_wheel_f">
+        <visual>
+            <geometry>
+                <cylinder length="0.05" radius="0.1"/>
+            </geometry>
+            <material name="white"/>
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+        </visual>
+        <collision>
+            <geometry>
+                <cylinder length="0.05" radius="0.1"/>
+            </geometry>
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+        </collision>
+        <xacro:inertial_cylinder mass="5.5" length="0.05" radius="0.1">
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+        </xacro:inertial_cylinder>
+    </link>
+
+    <link name="left_wheel_b">
+        <visual>
+            <geometry>
+                <cylinder length="0.05" radius="0.1"/>
+            </geometry>
+            <material name="white"/>
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+        </visual>
+        <collision>
+            <geometry>
+                <cylinder length="0.05" radius="0.1"/>
+            </geometry>
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+        </collision>
+        <xacro:inertial_cylinder mass="5.5" length="0.05" radius="0.1">
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+        </xacro:inertial_cylinder>
+    </link>
+
+    <link name="right_wheel_b">
+        <visual>
+            <geometry>
+                <cylinder length="0.05" radius="0.1"/>
+            </geometry>
+            <material name="white"/>
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+        </visual>
+        <collision>
+            <geometry>
+                <cylinder length="0.05" radius="0.1"/>
+            </geometry>
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+        </collision>
+        <xacro:inertial_cylinder mass="5.5" length="0.05" radius="0.1">
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+        </xacro:inertial_cylinder>
+    </link>
+
+    <joint type="continuous" name="left_joint_f">
+        <axis rpy="0 0 0" xyz="0 0 1"/>
+        <limit 
+            effort="10.0" 
+            lower="-3.14159265359" 
+            upper="3.14159265359" 
+            velocity="10.0"
+            />
+        <parent link="body2"/>
+        <child link="left_wheel_f"/>
+        <origin xyz="0.2 -0.2 -0.025" rpy="0 0 0"/>
+    </joint>
+
+    <joint type="continuous" name="right_joint_f">
+        <axis rpy="0 0 0" xyz="0 0 1"/>
+        <limit 
+            effort="10.0" 
+            lower="-3.14159265359" 
+            upper="3.14159265359" 
+            velocity="10.0"
+            />
+        <parent link="body3"/>
+        <child link="right_wheel_f"/>
+        <origin xyz="0.2 -0.2 0.025" rpy="0 3.14159 0"/>
+    </joint>
+
+    <joint type="continuous" name="left_joint_b">
+        <axis rpy="0 0 0" xyz="0 0 1"/>
+        <limit 
+            effort="10.0" 
+            lower="-3.14159265359" 
+            upper="3.14159265359" 
+            velocity="10.0"
+            />
+        <parent link="body2"/>
+        <child link="left_wheel_b"/>
+        <origin xyz="-0.2 -0.2 -0.025" rpy="0 0 0"/>
+    </joint>
+
+    <joint type="continuous" name="right_joint_b">
+        <axis rpy="0 0 0" xyz="0 0 1"/>
+        <limit 
+            effort="10.0" 
+            lower="-3.14159265359" 
+            upper="3.14159265359" 
+            velocity="10.0"
+            />
+        <parent link="body3"/>
+        <child link="right_wheel_b"/>
+        <origin xyz="-0.2 -0.2 0.025" rpy="0 3.14159 0"/>
+    </joint>
+
+</robot>

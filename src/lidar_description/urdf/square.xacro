@@ -1,0 +1,84 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="dummy">
+    
+    <xacro:include filename="inertial_macros.xacro"/>
+
+    <!-- First link: buoyon -->
+    <link name="buoyon">
+        <visual>
+            <geometry>
+                <box size="1 1 0.1"/>
+            </geometry>
+            <origin rpy="0 0 0" xyz="0 0 0"/>
+        </visual>
+        <collision>
+            <geometry>
+                <box size="1 1 0.1"/>
+            </geometry>
+            <origin rpy="0 0 0" xyz="0 0 0"/>
+        </collision>
+        <xacro:inertial_box mass="10.5" x="1.0" y="1.0" z="0.1">
+            <origin xyz="0.5 0.05 5" rpy="0 0 0"/>
+        </xacro:inertial_box>
+           
+    </link>
+
+    <!-- Second link: buoyon2 -->
+    <!-- <link name="buoyon2">
+        <visual>
+            <geometry>
+                <box size="1 1 0.1"/>
+            </geometry>
+            <origin rpy="1 1 0.1" xyz="1 0 0"/>
+        </visual>
+        <collision>
+            <geometry>
+                <box size="1 1 0.1"/>
+            </geometry>
+            <origin rpy="0 0 0" xyz="1 0 0"/>
+        </collision>
+        <xacro:inertial_box mass="10.5" x="1.0" y="1.0" z="0.1">
+            <origin xyz="0.5 0.05 5" rpy="0 0 0"/>
+        </xacro:inertial_box>
+    </link> -->
+
+    <!-- Prismatic joint connecting buoyon to buoyon2 -->
+    <!-- <joint type="prismatic" name="joint_c">
+        <parent link="buoyon"/>
+        <child link="buoyon2"/>
+        <origin rpy="1.5707 0 0" xyz="0 0 0"/>
+        <limit lower="0.0" upper="0.05" effort="10.0" velocity="0.1"/>
+    </joint> -->
+
+    <!-- Gazebo properties for buoyon -->
+    <gazebo reference="buoyon">
+        <mu1>0.2</mu1>
+        <mu2>0.2</mu2>
+        <material>Gazebo/Green</material>
+    </gazebo>
+
+    <!-- Gazebo properties for buoyon2 -->
+    <!-- <gazebo reference="buoyon2">
+        <mu1>0.2</mu1>
+        <mu2>0.2</mu2>
+        <material>Gazebo/Blue</material>
+    </gazebo> -->
+
+    <!-- Buoyancy plugin for hydrodynamic response -->
+    <plugin name="BuoyancyPlugin" filename="libBuoyancyPlugin.so">
+        <fluid_density>999.1026</fluid_density>
+
+        <!-- Buoyancy properties for buoyon -->
+        <link name="buoyon">
+            <volume>50.0</volume>
+        </link>
+
+        <!-- Buoyancy properties for buoyon2 -->
+        <!-- <link name="buoyon2">
+            <center_of_volume>1 1 1</center_of_volume>
+            <volume>50.0</volume> 
+        </link> -->
+
+    </plugin>
+
+</robot>
