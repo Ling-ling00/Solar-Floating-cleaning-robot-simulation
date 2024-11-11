@@ -6,7 +6,7 @@
     <link name='base_link'>
       <inertial>
         <pose>0 0 0 0 0 0</pose>
-        <mass>10</mass>
+        <mass>50</mass>
         <inertia>
           <ixx>1</ixx>
           <ixy>0</ixy>
