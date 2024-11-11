@@ -90,7 +90,7 @@
 
       <link name='base_link'>
         <buoyancy>
-          <compensation>0.25</compensation>
+          <compensation>0.15</compensation>
           <origin xyz= "0 0 0"/>
         </buoyancy>
       </link>
