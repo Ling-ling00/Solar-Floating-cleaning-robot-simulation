@@ -12,12 +12,12 @@
 
     <include>
       <uri>model://Sphere1</uri>
-      <pose>1.6 0 1 0 0 0</pose>
+      <pose>2.55 0 1 0 0 0</pose>
     </include>
 
     <include>
       <uri>model://Sphere2</uri>
-      <pose>2.7 0 1 0 0 0</pose>
+      <pose>4.6 0 1 0 0 0</pose>
     </include>
 
     <include>
@@ -27,12 +27,12 @@
 
     <include>
       <uri>model://Sphere4</uri>
-      <pose>1.6 2.2 1 0 0 0</pose>
+      <pose>2.55 2.2 1 0 0 0</pose>
     </include>
 
     <include>
       <uri>model://Sphere5</uri>
-      <pose>2.7 2.2 1 0 0 0</pose>
+      <pose>4.6 2.2 1 0 0 0</pose>
     </include>
 
     <include>
@@ -42,12 +42,12 @@
 
     <include>
       <uri>model://Sphere7</uri>
-      <pose>1.6 -2.2 1 0 0 0</pose>
+      <pose>2.55 -2.2 1 0 0 0</pose>
     </include>
 
     <include>
       <uri>model://Sphere8</uri>
-      <pose>2.7 -2.2 1 0 0 0</pose>
+      <pose>4.6 -2.2 1 0 0 0</pose>
     </include>
 
   </world>
