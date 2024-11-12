@@ -10,14 +10,14 @@ def generate_launch_description():
     
     pkg = get_package_share_directory('lidar_description')
     
-    path_description = os.path.join(pkg,'urdf','square.xacro')
+    path_description = os.path.join(pkg,'urdf','robot2.xacro')
     robot_desc_xml = xacro.process_file(path_description).toxml()
     
     parameters = [{'robot_description':robot_desc_xml}]
     robot_state_publisher = Node(package='robot_state_publisher',
                                   executable='robot_state_publisher',
                                   output='screen',
-                                  namespace='buoyon',
+                                  remappings=[('/robot_description','/robot/robot_description')],
                                   parameters=parameters
     )
 

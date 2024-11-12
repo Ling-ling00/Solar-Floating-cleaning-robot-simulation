@@ -22,7 +22,7 @@ class LidarReadNode(Node):
         self.kp = [65.0, 2210.0]
         self.stack_pos = []
         self.deg = [270, 90]
-        self.dh = [0.25, 0.43]
+        self.dh = [0.40, 0.58]
         self.prev_distance = [0,0]
         self.side = 'none'
 
@@ -32,7 +32,7 @@ class LidarReadNode(Node):
         a = -1
 
         #if have solarcell below
-        if abs(distance[0]) >= 0.005 and abs(distance[1]) >= 0.005:
+        if abs(distance[0]) >= 0.01 and abs(distance[1]) >= 0.01:
 
             # check if solarcell shift left or right
             error = distance[0] + distance[1]

@@ -26,7 +26,7 @@ def generate_launch_description():
                 os.path.join(
                     get_package_share_directory(package_name),
                     "launch",
-                    "robot.launch.py"
+                    "robot2.launch.py"
                 )
             ]
         ),
@@ -40,19 +40,6 @@ def generate_launch_description():
                     get_package_share_directory(package_name),
                     "launch",
                     "solar.launch.py"
-                )
-            ]
-        ),
-        launch_arguments={"use_sim_time":"true"}.items()
-    )
-
-    buoyon = IncludeLaunchDescription(
-        PythonLaunchDescriptionSource(
-            [
-                os.path.join(
-                    get_package_share_directory(package_name),
-                    "launch",
-                    "buoyon.launch.py"
                 )
             ]
         ),
