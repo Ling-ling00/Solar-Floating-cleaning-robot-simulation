@@ -31,6 +31,7 @@ install(PROGRAMS
   scripts/lidar_read.py
   scripts/lidar_read_sim.py
   scripts/robot_control.py
+  scripts/imu_read_sim.py
   DESTINATION lib/${PROJECT_NAME}
 )
 

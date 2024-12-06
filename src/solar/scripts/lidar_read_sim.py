@@ -4,7 +4,7 @@ import rclpy
 from rclpy.node import Node
 from sensor_msgs.msg import LaserScan
 import numpy as np
-from std_msgs.msg import Float64MultiArray
+from std_msgs.msg import Float64MultiArray, Bool
 
 
 class LidarReadNode(Node):
@@ -12,17 +12,18 @@ class LidarReadNode(Node):
         super().__init__('lidar_read_node')
 
         self.lim_pos_publisher = self.create_publisher(LaserScan, '/scan2', 10)
+        self.brush_publisher = self.create_publisher(Bool, '/brush', 10)
         self.cmd_vel_publisher = self.create_publisher(Float64MultiArray, '/velocity_controllers/commands', 10)
 
         #subscription
         self.create_subscription(LaserScan, "/lidar/out", self.lidar_callback, 10)
 
         #variable
-        self.max_speed = 65.0
+        self.max_speed = 100.0
         self.kp = [65.0, 2210.0]
         self.stack_pos = []
         self.deg = [270, 90]
-        self.dh = [0.40, 0.58]
+        self.dh = [0.35, 0.50]
         self.prev_distance = [0,0]
         self.side = 'none'
 
@@ -32,40 +33,40 @@ class LidarReadNode(Node):
         a = -1
 
         #if have solarcell below
-        if abs(distance[0]) >= 0.01 and abs(distance[1]) >= 0.01:
+        # if abs(distance[0]) >= 0.01 and abs(distance[1]) >= 0.01:
 
             # check if solarcell shift left or right
-            error = distance[0] + distance[1]
-            if abs(error) < 0.1:
-                # if solarcell in the middle
-                error = distance[0] - self.prev_distance[0]
-                #check if solarcell rotate
-                if abs(error) > 0.001:
+        error = distance[0] + distance[1]
+        if abs(error) < 0.1:
+            # if solarcell in the middle
+            error = distance[0] - self.prev_distance[0]
+            #check if solarcell rotate
+            if abs(error) > 0.001:
 
-                    #กันเวลาหมุนกลับแล้วค่า previous ไม่ได้เปลี่ยนเพราะเดินหน้าปกติ ให้เดินหน้าปกติก่อนค่อยหมุนใหม่
-                    if (self.side != 'left' and error > 0) or (self.side != 'right' and error < 0):
-                        v = [-(self.kp[1] * error), +(self.kp[1] * error)]
-                        if error > 0:
-                            self.side = 'right'
-                        else:
-                            self.side = 'left'
+                #กันเวลาหมุนกลับแล้วค่า previous ไม่ได้เปลี่ยนเพราะเดินหน้าปกติ ให้เดินหน้าปกติก่อนค่อยหมุนใหม่
+                if (self.side != 'left' and error > 0) or (self.side != 'right' and error < 0):
+                    v = [-(self.kp[1] * error), +(self.kp[1] * error)]
+                    if error > 0:
+                        self.side = 'right'
                     else:
-                        v = [self.max_speed, self.max_speed]
+                        self.side = 'left'
                 else:
                     v = [self.max_speed, self.max_speed]
-                    self.side = 'none'
             else:
-                v = [self.max_speed-(self.kp[0] * error), self.max_speed+(self.kp[0] * error)]
+                v = [self.max_speed, self.max_speed]
                 self.side = 'none'
-
-            #check limit real max speed = 1.5 * max_speed
-            if abs(v[0]) > self.max_speed*1.5:
-                v[0] = self.max_speed * 1.5 * (v[0]/abs(v[0]))
-            if abs(v[1]) > self.max_speed*1.5:
-                v[1] = self.max_speed * 1.5 * (v[1]/abs(v[1]))
-            self.prev_distance = distance
         else:
-            v = [0.0, 0.0]
+            v = [self.max_speed-(self.kp[0] * error), self.max_speed+(self.kp[0] * error)]
+            self.side = 'none'
+
+        #check limit real max speed = 1.5 * max_speed
+        if abs(v[0]) > self.max_speed*1.5:
+            v[0] = self.max_speed * 1.5 * (v[0]/abs(v[0]))
+        if abs(v[1]) > self.max_speed*1.5:
+            v[1] = self.max_speed * 1.5 * (v[1]/abs(v[1]))
+        self.prev_distance = distance
+        # else:
+        #     v = [0.0, 0.0]
         msg.data = [a*x/10 for x in [v[0], v[0], -v[1], -v[1]]]
         self.cmd_vel_publisher.publish(msg)
         self.get_logger().info(f'Publishing speed data =  {v}')
@@ -142,6 +143,17 @@ class LidarReadNode(Node):
         d = self.distance_check(self.lim_dy, self.lim_dx, self.dh)
         self.cmd_pub(d)
         self.publish_lidar_data(msg, self.deg)
+        self.brush_check(self.lim_dy, self.dh)
+    
+    def brush_check(self, dy, dh):
+        if ((dy[len(dy)//2] > max(dh) or dy[len(dy)//2] is None) and 
+            (dy[(len(dy)//2)+1] > max(dh) or dy[(len(dy)//2)+1] is None) and 
+            (dy[(len(dy)//2)-1] > max(dh) or dy[(len(dy)//2)-1] is None) and 
+            (dy[(len(dy)//2)+2] > max(dh) or dy[(len(dy)//2)+2] is None) and 
+            (dy[(len(dy)//2)-2] > max(dh) or dy[(len(dy)//2)-2] is None)):
+            brush_msg = Bool()
+            brush_msg.data = True
+            self.brush_publisher.publish(brush_msg)
 
 def main(args=None):
     rclpy.init(args=args)

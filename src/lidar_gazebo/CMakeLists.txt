@@ -15,12 +15,21 @@ if(CMAKE_COMPILER_IS_GNUCXX OR CMAKE_CXX_COMPILER_ID MATCHES "Clang")
   add_compile_options(-Wall -Wextra -Wpedantic)
 endif()
 
-################ FIND DEPENDENCIES  #################
-find_package(ament_cmake REQUIRED)		# cpp (optional)
-find_package(rclcpp REQUIRED)			# cpp (optional)
-find_package(ament_cmake_python REQUIRED)   	# python (optional)
-find_package(rclpy REQUIRED)                	# python (optional)
-######################################################
+################ FIND DEPENDENCIES #################
+find_package(ament_cmake REQUIRED)       # cpp (optional)
+find_package(rclcpp REQUIRED)           # cpp (optional)
+find_package(ament_cmake_python REQUIRED) # python (optional)
+find_package(rclpy REQUIRED)            # python (optional)
+find_package(gazebo REQUIRED)           # gazebo
+
+include_directories(
+  ${GAZEBO_INCLUDE_DIRS}
+  include
+)
+
+link_directories(${GAZEBO_LIBRARY_DIRS})
+
+#####################################################
 
 # Install Python Module
 ament_python_install_package(${PROJECT_NAME})
@@ -30,10 +39,6 @@ install(PROGRAMS
   scripts/dummy_script.py
   DESTINATION lib/${PROJECT_NAME}
 )
-
-
-# Include Cpp "include" directory
-include_directories(include)
 
 # Create Cpp executable
 add_executable(cpp_node_test src/cpp_node.cpp)
@@ -45,10 +50,30 @@ install(TARGETS
   DESTINATION lib/${PROJECT_NAME}
 )
 
-################ INSTALL LAUNCH, ETC #################
+# Create Gazebo plugin library
+add_library(freebuoyancy_gazebo SHARED
+  src/freebuoyancy.cpp
+  src/freebuoyancy.h
+)
+
+target_link_libraries(freebuoyancy_gazebo ${GAZEBO_LIBRARIES})
+
+# Install Gazebo plugin
+install(TARGETS freebuoyancy_gazebo
+  DESTINATION lib/${PROJECT_NAME}
+)
+
+# Install headers
 install(DIRECTORY
-  # add directories here
+  src/
+  DESTINATION include/${PROJECT_NAME}
+  FILES_MATCHING PATTERN "*.h"
+)
+
+# Install additional files (e.g., launch files)
+install(DIRECTORY
   launch
+  worlds
   DESTINATION share/${PROJECT_NAME})
 
 ament_package()

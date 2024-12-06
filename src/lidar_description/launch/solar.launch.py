@@ -10,7 +10,7 @@ def generate_launch_description():
     
     pkg = get_package_share_directory('lidar_description')
     
-    path_description = os.path.join(pkg,'urdf','solarcell.xacro')
+    path_description = os.path.join(pkg,'urdf','solarcell2.xacro')
     robot_desc_xml = xacro.process_file(path_description).toxml()
     
     parameters = [{'robot_description':robot_desc_xml}]

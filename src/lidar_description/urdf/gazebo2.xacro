@@ -46,6 +46,28 @@
             <robot_sim_type>gazebo_ros2_control/GazeboSystem</robot_sim_type>
             <parameters>$(find lidar_description)/config/example_controllers.yaml</parameters>
         </plugin>
+
+    <!-- <plugin filename="libgazebo_ros_diff_drive.so" name="diff_drive_controller">
+        <ros>
+         <namespace></namespace> 
+         <remapping>odom:=/odom</remapping> 
+            </ros>
+            <odom_topic>odom</odom_topic> 
+            <odometry_frame>odom</odometry_frame> 
+            <robot_base_frame>base_link</robot_base_frame> 
+            <update_rate>50</update_rate> 
+            <publish_tf>true</publish_tf>
+            <publish_tf_map>true</publish_tf_map> 
+            <left_joint>left_joint_b</left_joint> 
+            <right_joint>right_joint_b</right_joint> 
+            <wheel_separation>1.0</wheel_separation> 
+            <wheel_radius>0.3</wheel_radius> 
+            <velocity_rolling_window_size>10</velocity_rolling_window_size>
+        </plugin> -->
+
+
+
+
     </gazebo>
 
     <gazebo reference="dummy">
