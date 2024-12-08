@@ -174,8 +174,8 @@ void FreeBuoyancyPlugin::ParseNewModel(const physics::ModelPtr &_model) {
     for (auto sdf_element = _model->GetSDF()->GetFirstElement(); sdf_element != 0; sdf_element = sdf_element->GetNextElement()) {
         urdf_doc.Parse(sdf_element->ToString("").c_str(), 0);
         urdf_root = urdf_doc.FirstChildElement();
-        if (sdf_element->HasElement("link")) {
-            auto link = sdf_element->GetElement("link");
+        if (sdf_element->GetName() == "link") {
+            auto link = sdf_element;
             auto linkName = link->GetAttribute("name")->GetAsString();
 
             if (link->HasElement("buoyancy")) {
@@ -185,32 +185,33 @@ void FreeBuoyancyPlugin::ParseNewModel(const physics::ModelPtr &_model) {
                 sdf_link = _model->GetChildLink(linkName);
 
                 for (auto buoy = link->GetElement("buoyancy"); buoy != NULL; buoy = buoy->GetNextElement()) {
+                    if (buoy->GetName() == "buoyancy"){
+                        // this link is subject to buoyancy, create an instance
+                        link_st new_buoy_link;
+                        new_buoy_link.model_name = _model->GetName();            // in case this model is deleted
+                        new_buoy_link.link =  sdf_link;    // to apply forces
+                        new_buoy_link.limit = .1;
 
-                    // this link is subject to buoyancy, create an instance
-                    link_st new_buoy_link;
-                    new_buoy_link.model_name = _model->GetName();            // in case this model is deleted
-                    new_buoy_link.link =  sdf_link;    // to apply forces
-                    new_buoy_link.limit = .1;
+                        // get data from urdf
+                        // default values
+                        new_buoy_link.buoyancy_center = sdf_link->GetInertial()->CoG();
+                        new_buoy_link.linear_damping = new_buoy_link.angular_damping = 5 * ignition::math::Vector3d::One * sdf_link->GetInertial()->Mass();
 
-                    // get data from urdf
-                    // default values
-                    new_buoy_link.buoyancy_center = sdf_link->GetInertial()->CoG();
-                    new_buoy_link.linear_damping = new_buoy_link.angular_damping = 5 * ignition::math::Vector3d::One * sdf_link->GetInertial()->Mass();
+                        compensation = 0;
 
-                    compensation = 0;
+                        if (buoy->HasElement("origin")) {
+                            auto vec = buoy->GetElement("origin")->GetAttribute("xyz")->GetAsString();
+                            ReadVector3(vec, new_buoy_link.buoyancy_center);
+                        }
+                        if (buoy->HasElement("compensation")) {
+                            compensation = stof(buoy->GetElement("compensation")->GetValue()->GetAsString());
+                        }
 
-                    if (buoy->HasElement("origin")) {
-                        auto vec = buoy->GetElement("origin")->GetAttribute("xyz")->GetAsString();
-                        ReadVector3(vec, new_buoy_link.buoyancy_center);
+                        new_buoy_link.buoyant_force = -compensation * sdf_link->GetInertial()->Mass() * WORLD_GRAVITY;
+
+                        // store this link
+                        buoyant_links_.push_back(new_buoy_link);
                     }
-                    if (buoy->HasElement("compensation")) {
-                        compensation = stof(buoy->GetElement("compensation")->GetValue()->GetAsString());
-                    }
-
-                    new_buoy_link.buoyant_force = -compensation * sdf_link->GetInertial()->Mass() * WORLD_GRAVITY;
-
-                    // store this link
-                    buoyant_links_.push_back(new_buoy_link);
                 }
             }
         }
