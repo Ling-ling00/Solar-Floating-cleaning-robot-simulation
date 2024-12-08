@@ -1,0 +1,376 @@
+<?xml version='1.0'?>
+<sdf version='1.5'>
+
+  <model name='test2'>
+    <plugin name="freebuoyancy_gazebo" filename="libfreebuoyancy_gazebo.so">
+        <descriptionParam>robot_description</descriptionParam>
+        <fluidTopic>current</fluidTopic>
+        <alwaysOn>true</alwaysOn>
+        <surface>0 0 0</surface>
+        <updateRate>.001</updateRate>
+    </plugin>
+
+    <link name='square_1'>
+      <pose>0 -0.75 0 0 0 0</pose>
+      <inertial>
+        <mass>100</mass>
+        <inertia>
+          <ixx>2.166666</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>2.166666</iyy>
+          <iyz>0</iyz>
+          <izz>4.166666</izz>
+        </inertia>
+      </inertial>
+
+      <visual name='base_link_visual'>
+        <geometry>
+          <box>
+            <size>0.5 0.5 0.1</size>
+          </box>
+        </geometry>
+      </visual>
+
+      <collision name='base_link_collision'>
+        <geometry>
+          <box>
+            <size>0.5 0.5 0.1</size>
+          </box>
+        </geometry>
+      </collision>
+
+      <buoyancy>
+        <compensation>1.51</compensation>
+        <origin xyz= "0 0 0"/>
+      </buoyancy>
+    </link>
+
+    <link name='square_2'>
+      <pose>0.55 -0.75 0 0 0 0</pose>
+      <inertial>
+        <mass>100</mass>
+        <inertia>
+          <ixx>2.166666</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>2.166666</iyy>
+          <iyz>0</iyz>
+          <izz>4.166666</izz>
+        </inertia>
+      </inertial>
+
+      <visual name='base_link_visual'>
+        <geometry>
+          <box>
+            <size>0.5 0.5 0.1</size>
+          </box>
+        </geometry>
+      </visual>
+
+      <collision name='base_link_collision'>
+        <geometry>
+          <box>
+            <size>0.5 0.5 0.1</size>
+          </box>
+        </geometry>
+      </collision>
+
+      <buoyancy>
+        <compensation>1.51</compensation>
+        <origin xyz= "0 0 0"/>
+      </buoyancy>
+    </link>
+
+    <link name='square_3'>
+      <pose>0 0.75 0 0 0 0</pose>
+      <inertial>
+        <mass>100</mass>
+        <inertia>
+          <ixx>2.166666</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>2.166666</iyy>
+          <iyz>0</iyz>
+          <izz>4.166666</izz>
+        </inertia>
+      </inertial>
+
+      <visual name='base_link_visual'>
+        <geometry>
+          <box>
+            <size>0.5 0.5 0.1</size>
+          </box>
+        </geometry>
+      </visual>
+
+      <collision name='base_link_collision'>
+        <geometry>
+          <box>
+            <size>0.5 0.5 0.1</size>
+          </box>
+        </geometry>
+      </collision>
+
+      <buoyancy>
+        <compensation>1.51</compensation>
+        <origin xyz= "0 0 0"/>
+      </buoyancy>
+    </link>
+
+    <link name='square_4'>
+      <pose>0.55 0.75 0 0 0 0</pose>
+      <inertial>
+        <mass>100</mass>
+        <inertia>
+          <ixx>2.166666</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>2.166666</iyy>
+          <iyz>0</iyz>
+          <izz>4.166666</izz>
+        </inertia>
+      </inertial>
+
+      <visual name='base_link_visual'>
+        <geometry>
+          <box>
+            <size>0.5 0.5 0.1</size>
+          </box>
+        </geometry>
+      </visual>
+
+      <collision name='base_link_collision'>
+        <geometry>
+          <box>
+            <size>0.5 0.5 0.1</size>
+          </box>
+        </geometry>
+      </collision>
+
+      <buoyancy>
+        <compensation>1.51</compensation>
+        <origin xyz= "0 0 0"/>
+      </buoyancy>
+    </link>
+
+    <link name='square_5'>
+      <pose>1.1 -0.75 0 0 0 0</pose>
+      <inertial>
+        <mass>100</mass>
+        <inertia>
+          <ixx>2.166666</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>2.166666</iyy>
+          <iyz>0</iyz>
+          <izz>4.166666</izz>
+        </inertia>
+      </inertial>
+
+      <visual name='base_link_visual'>
+        <geometry>
+          <box>
+            <size>0.5 0.5 0.1</size>
+          </box>
+        </geometry>
+      </visual>
+
+      <collision name='base_link_collision'>
+        <geometry>
+          <box>
+            <size>0.5 0.5 0.1</size>
+          </box>
+        </geometry>
+      </collision>
+
+      <buoyancy>
+        <compensation>1.51</compensation>
+        <origin xyz= "0 0 0"/>
+      </buoyancy>
+    </link>
+
+    <link name='square_6'>
+      <pose>1.1 0.75 0 0 0 0</pose>
+      <inertial>
+        <mass>100</mass>
+        <inertia>
+          <ixx>2.166666</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>2.166666</iyy>
+          <iyz>0</iyz>
+          <izz>4.166666</izz>
+        </inertia>
+      </inertial>
+
+      <visual name='base_link_visual'>
+        <geometry>
+          <box>
+            <size>0.5 0.5 0.1</size>
+          </box>
+        </geometry>
+      </visual>
+
+      <collision name='base_link_collision'>
+        <geometry>
+          <box>
+            <size>0.5 0.5 0.1</size>
+          </box>
+        </geometry>
+      </collision>
+
+      <buoyancy>
+        <compensation>1.51</compensation>
+        <origin xyz= "0 0 0"/>
+      </buoyancy>
+    </link>
+
+    <link name='square_7'>
+      <pose>1.65 -0.75 0 0 0 0</pose>
+      <inertial>
+        <mass>100</mass>
+        <inertia>
+          <ixx>2.166666</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>2.166666</iyy>
+          <iyz>0</iyz>
+          <izz>4.166666</izz>
+        </inertia>
+      </inertial>
+
+      <visual name='base_link_visual'>
+        <geometry>
+          <box>
+            <size>0.5 0.5 0.1</size>
+          </box>
+        </geometry>
+      </visual>
+
+      <collision name='base_link_collision'>
+        <geometry>
+          <box>
+            <size>0.5 0.5 0.1</size>
+          </box>
+        </geometry>
+      </collision>
+
+      <buoyancy>
+        <compensation>1.51</compensation>
+        <origin xyz= "0 0 0"/>
+      </buoyancy>
+    </link>
+
+    <link name='square_8'>
+      <pose>1.65 0.75 0 0 0 0</pose>
+      <inertial>
+        <mass>100</mass>
+        <inertia>
+          <ixx>2.166666</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>2.166666</iyy>
+          <iyz>0</iyz>
+          <izz>4.166666</izz>
+        </inertia>
+      </inertial>
+
+      <visual name='base_link_visual'>
+        <geometry>
+          <box>
+            <size>0.5 0.5 0.1</size>
+          </box>
+        </geometry>
+      </visual>
+
+      <collision name='base_link_collision'>
+        <geometry>
+          <box>
+            <size>0.5 0.5 0.1</size>
+          </box>
+        </geometry>
+      </collision>
+
+      <buoyancy>
+        <compensation>1.51</compensation>
+        <origin xyz= "0 0 0"/>
+      </buoyancy>
+    </link>
+
+    <joint name="joint1" type="prismatic">
+      <parent>world</parent>
+      <child>square_1</child>
+      <pose>0 0 0 0 0 0</pose>
+      <axis>
+        <xyz>0 0 1</xyz>
+      </axis>
+    </joint>
+
+    <joint name="joint2" type="prismatic">
+      <parent>world</parent>
+      <child>square_2</child>
+      <pose>0 0 0 0 0 0</pose>
+      <axis>
+        <xyz>0 0 1</xyz>
+      </axis>
+    </joint>
+
+    <joint name="joint3" type="prismatic">
+      <parent>world</parent>
+      <child>square_3</child>
+      <pose>0 0 0 0 0 0</pose>
+      <axis>
+        <xyz>0 0 1</xyz>
+      </axis>
+    </joint>
+
+    <joint name="joint4" type="prismatic">
+      <parent>world</parent>
+      <child>square_4</child>
+      <pose>0 0 0 0 0 0</pose>
+      <axis>
+        <xyz>0 0 1</xyz>
+      </axis>
+    </joint>
+
+    <joint name="joint5" type="prismatic">
+      <parent>world</parent>
+      <child>square_5</child>
+      <pose>0 0 0 0 0 0</pose>
+      <axis>
+        <xyz>0 0 1</xyz>
+      </axis>
+    </joint>
+
+    <joint name="joint6" type="prismatic">
+      <parent>world</parent>
+      <child>square_6</child>
+      <pose>0 0 0 0 0 0</pose>
+      <axis>
+        <xyz>0 0 1</xyz>
+      </axis>
+    </joint>
+
+    <joint name="joint7" type="prismatic">
+      <parent>world</parent>
+      <child>square_7</child>
+      <pose>0 0 0 0 0 0</pose>
+      <axis>
+        <xyz>0 0 1</xyz>
+      </axis>
+    </joint>
+
+    <joint name="joint8" type="prismatic">
+      <parent>world</parent>
+      <child>square_8</child>
+      <pose>0 0 0 0 0 0</pose>
+      <axis>
+        <xyz>0 0 1</xyz>
+      </axis>
+    </joint>
+      
+  </model>
+  
+</sdf>
+

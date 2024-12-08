@@ -5,7 +5,12 @@
       <uri>model://sun</uri>
     </include>
 
-  <include>
+    <include>
+      <uri>model://test2</uri>
+      <pose>0.5 0 0.0 0 0 0</pose>
+    </include>
+
+  <!-- <include>
       <uri>model://test</uri>
       <pose>0.5 0 0.0 0 0 0</pose>
     </include>
@@ -63,7 +68,7 @@
     <include>
       <uri>model://path2</uri>
       <pose>2.5 -1.0 0.08 0 0 0</pose>
-    </include>
+    </include> -->
 
      <!-- buoyancy plugin -->
 

@@ -25,7 +25,7 @@ def generate_launch_description():
     
     # Path to the world file
     # world_file_name = "freebuoyancy_demo.world"
-    world_file_name = "default.world"
+    world_file_name = "freebuoyancy_demo.world"
     world_file_path = os.path.join(
         get_package_share_directory("lidar_gazebo"),
         'worlds',
@@ -47,7 +47,7 @@ def generate_launch_description():
     )
 
     # Launch Gazebo with the specific world
-    gazebo = IncludeLaunchDescription(
+    gazebo2 = IncludeLaunchDescription(
         PythonLaunchDescriptionSource(
             [
                 os.path.join(
@@ -67,7 +67,7 @@ def generate_launch_description():
         raise FileNotFoundError(f"World file '{world_file_path}' does not exist.")
 
     # Launch Gazebo with the specific world
-    gazebo2 = IncludeLaunchDescription(
+    gazebo = IncludeLaunchDescription(
         PythonLaunchDescriptionSource(
             PathJoinSubstitution([
                 FindPackageShare("gazebo_ros"),
@@ -86,9 +86,9 @@ def generate_launch_description():
         arguments=[
             "-topic", "/robot/robot_description",
             "-entity", "robot",
-            "-x", "-3.5",
+            "-x", "1.0",
             "-y", "0.0",
-            "-z", "1.0"
+            "-z", "0.1"
         ],
         output="screen"
     )
