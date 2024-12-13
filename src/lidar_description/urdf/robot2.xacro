@@ -16,9 +16,22 @@
     </joint>
 
     <link name="base_link">
-        <xacro:inertial_box mass="10.5" x="1.0" y="1.4" z="0.3035">
-            <origin xyz="0 0 0.15175 " rpy="0 0 0"/>
-        </xacro:inertial_box>
+        <inertial>
+            <!-- Mass -->
+            <mass value="48.94155" />
+
+            <!-- Center of Mass -->
+            <origin xyz="-0.06061 0.03849 0.13055" />
+
+            <!-- Inertia Matrix -->
+            <inertia
+            ixx="11.69721231776"
+            ixy="-0.24793148078"
+            ixz="0.13519725788"
+            iyy="2.68655479586"
+            iyz="-0.43545579979"
+            izz="13.00728941730" />
+        </inertial>
         <visual>
             <origin xyz="0 0 0" rpy="0 0 0" />
             <geometry>
@@ -37,7 +50,7 @@
     </link>
 
     <link name="right_wheel_b">
-        <xacro:inertial_cylinder mass="5.5" length="0.1" radius="0.1">
+        <xacro:inertial_cylinder mass="9.304" length="0.1" radius="0.1">
             <origin xyz="0 0 0" rpy="0 0 0"/>
         </xacro:inertial_cylinder>
         <visual>
@@ -58,7 +71,7 @@
     </link>
 
     <link name="left_wheel_b">
-        <xacro:inertial_cylinder mass="5.5" length="0.1" radius="0.1">
+        <xacro:inertial_cylinder mass="9.304" length="0.1" radius="0.1">
             <origin xyz="0 0 0" rpy="0 0 0"/>
         </xacro:inertial_cylinder>
         <visual>
@@ -79,7 +92,7 @@
     </link>
 
     <link name="right_wheel_f">
-        <xacro:inertial_cylinder mass="5.5" length="0.1" radius="0.1">
+        <xacro:inertial_cylinder mass="9.304" length="0.1" radius="0.1">
             <origin xyz="0 0 0" rpy="0 0 0"/>
         </xacro:inertial_cylinder>
         <visual>
@@ -100,7 +113,7 @@
     </link>
 
     <link name="left_wheel_f">
-        <xacro:inertial_cylinder mass="5.5" length="0.1" radius="0.1">
+        <xacro:inertial_cylinder mass="9.304" length="0.1" radius="0.1">
             <origin xyz="0 0 0" rpy="0 0 0"/>
         </xacro:inertial_cylinder>
         <visual>
