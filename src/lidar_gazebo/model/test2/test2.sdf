@@ -1940,7 +1940,7 @@
 
       <joint name="top_square_to_small_box_63" type="fixed">
         <parent>small_box_63</parent>
-        <child>top_square6]</child>
+        <child>top_square6</child>
       </joint>
 
       <joint name="top_square_to_small_box_64" type="fixed">
@@ -1948,8 +1948,1430 @@
         <child>top_square6</child>
       </joint>                   
   
+  <!-- Roll7 -->
+      <link name='float_71'>
+        <pose>2.15 0 0 0 0 0</pose>
+        <inertial>
+          <mass>100</mass>
+          <inertia>
+            <ixx>20.541666</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>3.041666</iyy>
+            <iyz>0</iyz>
+            <izz>22.541666</izz>
+          </inertia>
+        </inertial>
+
+        <visual name='base_link_visual'>
+          <geometry>
+            <box>
+              <size>0.55 1.55 0.25</size>
+            </box>
+          </geometry>
+        </visual>
+
+        <collision name='base_link_collision'>
+          <geometry>
+            <box>
+              <size>0.55 1.55 0.25</size>
+            </box>
+          </geometry>
+        </collision>
+
+        <buoyancy>
+          <compensation>1.51</compensation>
+          <origin xyz= "0 0 0"/>
+        </buoyancy>
+      </link>
+
+      <link name='float_72'>
+        <pose>2.15 1.6 0 0 0 0</pose>
+        <inertial>
+          <mass>100</mass>
+          <inertia>
+            <ixx>20.541666</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>3.041666</iyy>
+            <iyz>0</iyz>
+            <izz>22.541666</izz>
+          </inertia>
+        </inertial>
+
+        <visual name='base_link_visual'>
+          <geometry>
+            <box>
+              <size>0.55 1.55 0.25</size>
+            </box>
+          </geometry>
+        </visual>
+
+        <collision name='base_link_collision'>
+          <geometry>
+            <box>
+              <size>0.55 1.55 0.25</size>
+            </box>
+          </geometry>
+        </collision>
+
+        <buoyancy>
+          <compensation>1.51</compensation>
+          <origin xyz= "0 0 0"/>
+        </buoyancy>
+      </link>
+
+      <link name='float_73'>
+        <pose>2.15 -1.6 0 0 0 0</pose>
+        <inertial>
+          <mass>100</mass>
+          <inertia>
+            <ixx>20.541666</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>3.041666</iyy>
+            <iyz>0</iyz>
+            <izz>22.541666</izz>
+          </inertia>
+        </inertial>
+
+        <visual name='base_link_visual'>
+          <geometry>
+            <box>
+              <size>0.55 1.55 0.25</size>
+            </box>
+          </geometry>
+        </visual>
+
+        <collision name='base_link_collision'>
+          <geometry>
+            <box>
+              <size>0.55 1.55 0.25</size>
+            </box>
+          </geometry>
+        </collision>
+
+        <buoyancy>
+          <compensation>1.51</compensation>
+          <origin xyz= "0 0 0"/>
+        </buoyancy>
+      </link>
+
+      <joint name="joint71" type="prismatic">
+        <parent>world</parent>
+        <child>float_71</child>
+        <pose>0 0 0 0 0 0</pose>
+        <axis>
+          <xyz>0 0 1</xyz>
+        </axis>
+      </joint>
+
+      <joint name="joint72" type="prismatic">
+        <parent>world</parent>
+        <child>float_72</child>
+        <pose>0 0 0 0 0 0</pose>
+        <axis>
+          <xyz>0 0 1</xyz>
+        </axis>
+      </joint>
+
+      <joint name="joint73" type="prismatic">
+        <parent>world</parent>
+        <child>float_73</child>
+        <pose>0 0 0 0 0 0</pose>
+        <axis>
+          <xyz>0 0 1</xyz>
+        </axis>
+      </joint>
+
+      <link name='small_box_71'>
+        <pose>1.95 -0.4 0.075 0 0 0</pose> 
+        <inertial>
+          <mass>0.001</mass>
+          <inertia>
+            <ixx>0.0000035</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>0.0000035</iyy>
+            <iyz>0</iyz>
+            <izz>0.00000041</izz>
+          </inertia>
+        </inertial>
+        <visual name='small_box_1_visual'>
+          <geometry>
+            <box>
+              <size>0.05 0.05 0.15</size>
+            </box>
+          </geometry>
+        </visual>
+        <collision name='small_box_1_collision'>
+          <geometry>
+            <box>
+              <size>0.05 0.05 0.15</size>
+            </box>
+          </geometry>
+        </collision>
+      </link>
+      <joint name="small_box_71_joint" type="fixed">
+        <parent>float_71</parent>
+        <child>small_box_71</child>
+      </joint>
+
+      <!-- Small box 2 (front left pole, taller) -->
+      <link name='small_box_72'>
+        <pose>1.95 0.4 0.15 0 0 0</pose> <!-- Adjusted Z position for height -->
+        <inertial>
+          <mass>0.001</mass>
+          <inertia>
+            <ixx>0.0000035</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>0.0000035</iyy>
+            <iyz>0</iyz>
+            <izz>0.00000041</izz>
+          </inertia>
+        </inertial>
+        <visual name='small_box_2_visual'>
+          <geometry>
+            <box>
+              <size>0.05 0.05 0.20</size>
+            </box>
+          </geometry>
+        </visual>
+        <collision name='small_box_2_collision'>
+          <geometry>
+            <box>
+              <size>0.05 0.05 0.20</size>
+            </box>
+          </geometry>
+        </collision>
+      </link>
+      <joint name="small_box_72_joint" type="fixed">
+        <parent>float_71</parent>
+        <child>small_box_72</child>
+      </joint>
+
+      <!-- Small box 3 (rear right pole) -->
+      <link name='small_box_73'>
+        <pose>2.35 -0.4 0.075 0 0 0</pose>
+        <inertial>
+          <mass>0.001</mass>
+          <inertia>
+            <ixx>0.0000035</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>0.0000035</iyy>
+            <iyz>0</iyz>
+            <izz>0.00000041</izz>
+          </inertia>
+        </inertial>
+        <visual name='small_box_3_visual'>
+          <geometry>
+            <box>
+              <size>0.05 0.05 0.15</size>
+            </box>
+          </geometry>
+        </visual>
+        <collision name='small_box_3_collision'>
+          <geometry>
+            <box>
+              <size>0.05 0.05 0.15</size>
+            </box>
+          </geometry>
+        </collision>
+      </link>
+      <joint name="small_box_73_joint" type="fixed">
+        <parent>float_71</parent>
+        <child>small_box_73</child>
+      </joint>
+
+      <!-- Small box 4 (front right pole, taller) -->
+      <link name='small_box_74'>
+        <pose>2.35 0.4 0.15 0 0 0</pose> <!-- Adjusted Z position for height -->
+        <inertial>
+          <mass>0.001</mass>
+          <inertia>
+            <ixx>0.0000035</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>0.0000035</iyy>
+            <iyz>0</iyz>
+            <izz>0.00000041</izz>
+          </inertia>
+        </inertial>
+        <visual name='small_box_4_visual'>
+          <geometry>
+            <box>
+              <size>0.05 0.05 0.20</size>
+            </box>
+          </geometry>
+        </visual>
+        <collision name='small_box_4_collision'>
+          <geometry>
+            <box>
+              <size>0.05 0.05 0.20</size>
+            </box>
+          </geometry>
+        </collision>
+      </link>
+      <joint name="small_box_74_joint" type="fixed">
+        <parent>float_71</parent>
+        <child>small_box_74</child>
+      </joint>
+
+    <!-- Square -->
+      <link name='top_square7'>
+        <pose>2.15 0 0.2 0.1 0 0</pose> 
+        <inertial>
+          <pose>0 0 0 0 0 0</pose>
+          <mass>0.001</mass>
+          <inertia>
+            <ixx>0.0000835</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>0.000333</iyy>
+            <iyz>0</iyz>
+            <izz>0.000416</izz>
+          </inertia>
+        </inertial>
+        <visual name='top_square_visual'>
+          <geometry>
+            <box>
+              <size>2 1 0.05</size> 
+            </box>
+          </geometry>
+        </visual>
+        <collision name='top_square_collision'>
+          <geometry>
+            <box>
+              <size>2 1 0.05</size>
+            </box>
+          </geometry>
+        </collision>
+      </link>
+
+      <!-- Fixed joints to attach the square platform to each pole -->
+      <joint name="top_square_to_small_box_71" type="fixed">
+        <parent>small_box_71</parent>
+        <child>top_square7</child>
+      </joint>
+
+      <joint name="top_square_to_small_box_72" type="fixed">
+        <parent>small_box_72</parent>
+        <child>top_square7</child>
+      </joint>
+
+      <joint name="top_square_to_small_box_73" type="fixed">
+        <parent>small_box_73</parent>
+        <child>top_square7</child>
+      </joint>
+
+      <joint name="top_square_to_small_box_74" type="fixed">
+        <parent>small_box_74</parent>
+        <child>top_square7</child>
+      </joint> 
+
+  <!-- Roll8 -->
+      <link name='float_81'>
+        <pose>4.3 0 0 0 0 0</pose>
+        <inertial>
+          <mass>100</mass>
+          <inertia>
+            <ixx>20.541666</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>3.041666</iyy>
+            <iyz>0</iyz>
+            <izz>22.541666</izz>
+          </inertia>
+        </inertial>
+
+        <visual name='base_link_visual'>
+          <geometry>
+            <box>
+              <size>0.55 1.55 0.25</size>
+            </box>
+          </geometry>
+        </visual>
+
+        <collision name='base_link_collision'>
+          <geometry>
+            <box>
+              <size>0.55 1.55 0.25</size>
+            </box>
+          </geometry>
+        </collision>
+
+        <buoyancy>
+          <compensation>1.51</compensation>
+          <origin xyz= "0 0 0"/>
+        </buoyancy>
+      </link>
+
+      <link name='float_82'>
+        <pose>4.3 1.6 0 0 0 0</pose>
+        <inertial>
+          <mass>100</mass>
+          <inertia>
+            <ixx>20.541666</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>3.041666</iyy>
+            <iyz>0</iyz>
+            <izz>22.541666</izz>
+          </inertia>
+        </inertial>
+
+        <visual name='base_link_visual'>
+          <geometry>
+            <box>
+              <size>0.55 1.55 0.25</size>
+            </box>
+          </geometry>
+        </visual>
+
+        <collision name='base_link_collision'>
+          <geometry>
+            <box>
+              <size>0.55 1.55 0.25</size>
+            </box>
+          </geometry>
+        </collision>
+
+        <buoyancy>
+          <compensation>1.51</compensation>
+          <origin xyz= "0 0 0"/>
+        </buoyancy>
+      </link>
+
+      <link name='float_83'>
+        <pose>4.3 -1.6 0 0 0 0</pose>
+        <inertial>
+          <mass>100</mass>
+          <inertia>
+            <ixx>20.541666</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>3.041666</iyy>
+            <iyz>0</iyz>
+            <izz>22.541666</izz>
+          </inertia>
+        </inertial>
+
+        <visual name='base_link_visual'>
+          <geometry>
+            <box>
+              <size>0.55 1.55 0.25</size>
+            </box>
+          </geometry>
+        </visual>
+
+        <collision name='base_link_collision'>
+          <geometry>
+            <box>
+              <size>0.55 1.55 0.25</size>
+            </box>
+          </geometry>
+        </collision>
+
+        <buoyancy>
+          <compensation>1.51</compensation>
+          <origin xyz= "0 0 0"/>
+        </buoyancy>
+      </link>
+
+      <joint name="joint81" type="prismatic">
+        <parent>world</parent>
+        <child>float_81</child>
+        <pose>0 0 0 0 0 0</pose>
+        <axis>
+          <xyz>0 0 1</xyz>
+        </axis>
+      </joint>
+
+      <joint name="joint82" type="prismatic">
+        <parent>world</parent>
+        <child>float_82</child>
+        <pose>0 0 0 0 0 0</pose>
+        <axis>
+          <xyz>0 0 1</xyz>
+        </axis>
+      </joint>
+
+      <joint name="joint83" type="prismatic">
+        <parent>world</parent>
+        <child>float_83</child>
+        <pose>0 0 0 0 0 0</pose>
+        <axis>
+          <xyz>0 0 1</xyz>
+        </axis>
+      </joint>
+
+      <link name='small_box_81'>
+        <pose>4.1 -0.4 0.075 0 0 0</pose> 
+        <inertial>
+          <mass>0.001</mass>
+          <inertia>
+            <ixx>0.0000035</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>0.0000035</iyy>
+            <iyz>0</iyz>
+            <izz>0.00000041</izz>
+          </inertia>
+        </inertial>
+        <visual name='small_box_1_visual'>
+          <geometry>
+            <box>
+              <size>0.05 0.05 0.15</size>
+            </box>
+          </geometry>
+        </visual>
+        <collision name='small_box_1_collision'>
+          <geometry>
+            <box>
+              <size>0.05 0.05 0.15</size>
+            </box>
+          </geometry>
+        </collision>
+      </link>
+      <joint name="small_box_81_joint" type="fixed">
+        <parent>float_81</parent>
+        <child>small_box_81</child>
+      </joint>
+
+      <!-- Small box 2 (front left pole, taller) -->
+      <link name='small_box_82'>
+        <pose>4.1 0.4 0.15 0 0 0</pose> <!-- Adjusted Z position for height -->
+        <inertial>
+          <mass>0.001</mass>
+          <inertia>
+            <ixx>0.0000035</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>0.0000035</iyy>
+            <iyz>0</iyz>
+            <izz>0.00000041</izz>
+          </inertia>
+        </inertial>
+        <visual name='small_box_2_visual'>
+          <geometry>
+            <box>
+              <size>0.05 0.05 0.20</size>
+            </box>
+          </geometry>
+        </visual>
+        <collision name='small_box_2_collision'>
+          <geometry>
+            <box>
+              <size>0.05 0.05 0.20</size>
+            </box>
+          </geometry>
+        </collision>
+      </link>
+      <joint name="small_box_82_joint" type="fixed">
+        <parent>float_81</parent>
+        <child>small_box_82</child>
+      </joint>
+
+      <!-- Small box 3 (rear right pole) -->
+      <link name='small_box_83'>
+        <pose>4.5 -0.4 0.075 0 0 0</pose>
+        <inertial>
+          <mass>0.001</mass>
+          <inertia>
+            <ixx>0.0000035</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>0.0000035</iyy>
+            <iyz>0</iyz>
+            <izz>0.00000041</izz>
+          </inertia>
+        </inertial>
+        <visual name='small_box_3_visual'>
+          <geometry>
+            <box>
+              <size>0.05 0.05 0.15</size>
+            </box>
+          </geometry>
+        </visual>
+        <collision name='small_box_3_collision'>
+          <geometry>
+            <box>
+              <size>0.05 0.05 0.15</size>
+            </box>
+          </geometry>
+        </collision>
+      </link>
+      <joint name="small_box_83_joint" type="fixed">
+        <parent>float_81</parent>
+        <child>small_box_83</child>
+      </joint>
+
+      <!-- Small box 4 (front right pole, taller) -->
+      <link name='small_box_84'>
+        <pose>4.5 0.4 0.15 0 0 0</pose> <!-- Adjusted Z position for height -->
+        <inertial>
+          <mass>0.001</mass>
+          <inertia>
+            <ixx>0.0000035</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>0.0000035</iyy>
+            <iyz>0</iyz>
+            <izz>0.00000041</izz>
+          </inertia>
+        </inertial>
+        <visual name='small_box_4_visual'>
+          <geometry>
+            <box>
+              <size>0.05 0.05 0.20</size>
+            </box>
+          </geometry>
+        </visual>
+        <collision name='small_box_4_collision'>
+          <geometry>
+            <box>
+              <size>0.05 0.05 0.20</size>
+            </box>
+          </geometry>
+        </collision>
+      </link>
+      <joint name="small_box_84_joint" type="fixed">
+        <parent>float_81</parent>
+        <child>small_box_84</child>
+      </joint>
+
+    <!-- Square -->
+      <link name='top_square8'>
+        <pose>4.3 0 0.2 0.1 0 0</pose> 
+        <inertial>
+          <pose>0 0 0 0 0 0</pose>
+          <mass>0.001</mass>
+          <inertia>
+            <ixx>0.0000835</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>0.000333</iyy>
+            <iyz>0</iyz>
+            <izz>0.000416</izz>
+          </inertia>
+        </inertial>
+        <visual name='top_square_visual'>
+          <geometry>
+            <box>
+              <size>2 1 0.05</size> 
+            </box>
+          </geometry>
+        </visual>
+        <collision name='top_square_collision'>
+          <geometry>
+            <box>
+              <size>2 1 0.05</size>
+            </box>
+          </geometry>
+        </collision>
+      </link>
+
+      <!-- Fixed joints to attach the square platform to each pole -->
+      <joint name="top_square_to_small_box_81" type="fixed">
+        <parent>small_box_81</parent>
+        <child>top_square8</child>
+      </joint>
+
+      <joint name="top_square_to_small_box_82" type="fixed">
+        <parent>small_box_82</parent>
+        <child>top_square8</child>
+      </joint>
+
+      <joint name="top_square_to_small_box_83" type="fixed">
+        <parent>small_box_83</parent>
+        <child>top_square8</child>
+      </joint>
+
+      <joint name="top_square_to_small_box_84" type="fixed">
+        <parent>small_box_84</parent>
+        <child>top_square8</child>
+      </joint>
+
+  <!-- Roll9 -->
+      <link name='float_91'>
+        <pose>6.45 0 0 0 0 0</pose>
+        <inertial>
+          <mass>100</mass>
+          <inertia>
+            <ixx>20.541666</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>3.041666</iyy>
+            <iyz>0</iyz>
+            <izz>22.541666</izz>
+          </inertia>
+        </inertial>
+
+        <visual name='base_link_visual'>
+          <geometry>
+            <box>
+              <size>0.55 1.55 0.25</size>
+            </box>
+          </geometry>
+        </visual>
+
+        <collision name='base_link_collision'>
+          <geometry>
+            <box>
+              <size>0.55 1.55 0.25</size>
+            </box>
+          </geometry>
+        </collision>
+
+        <buoyancy>
+          <compensation>1.51</compensation>
+          <origin xyz= "0 0 0"/>
+        </buoyancy>
+      </link>
+
+      <link name='float_92'>
+        <pose>6.45 1.6 0 0 0 0</pose>
+        <inertial>
+          <mass>100</mass>
+          <inertia>
+            <ixx>20.541666</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>3.041666</iyy>
+            <iyz>0</iyz>
+            <izz>22.541666</izz>
+          </inertia>
+        </inertial>
+
+        <visual name='base_link_visual'>
+          <geometry>
+            <box>
+              <size>0.55 1.55 0.25</size>
+            </box>
+          </geometry>
+        </visual>
+
+        <collision name='base_link_collision'>
+          <geometry>
+            <box>
+              <size>0.55 1.55 0.25</size>
+            </box>
+          </geometry>
+        </collision>
+
+        <buoyancy>
+          <compensation>1.51</compensation>
+          <origin xyz= "0 0 0"/>
+        </buoyancy>
+      </link>
+
+      <link name='float_93'>
+        <pose>6.45 -1.6 0 0 0 0</pose>
+        <inertial>
+          <mass>100</mass>
+          <inertia>
+            <ixx>20.541666</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>3.041666</iyy>
+            <iyz>0</iyz>
+            <izz>22.541666</izz>
+          </inertia>
+        </inertial>
+
+        <visual name='base_link_visual'>
+          <geometry>
+            <box>
+              <size>0.55 1.55 0.25</size>
+            </box>
+          </geometry>
+        </visual>
+
+        <collision name='base_link_collision'>
+          <geometry>
+            <box>
+              <size>0.55 1.55 0.25</size>
+            </box>
+          </geometry>
+        </collision>
+
+        <buoyancy>
+          <compensation>1.51</compensation>
+          <origin xyz= "0 0 0"/>
+        </buoyancy>
+      </link>
+
+      <joint name="joint91" type="prismatic">
+        <parent>world</parent>
+        <child>float_91</child>
+        <pose>0 0 0 0 0 0</pose>
+        <axis>
+          <xyz>0 0 1</xyz>
+        </axis>
+      </joint>
+
+      <joint name="joint92" type="prismatic">
+        <parent>world</parent>
+        <child>float_92</child>
+        <pose>0 0 0 0 0 0</pose>
+        <axis>
+          <xyz>0 0 1</xyz>
+        </axis>
+      </joint>
+
+      <joint name="joint93" type="prismatic">
+        <parent>world</parent>
+        <child>float_93</child>
+        <pose>0 0 0 0 0 0</pose>
+        <axis>
+          <xyz>0 0 1</xyz>
+        </axis>
+      </joint>
+
+      <link name='small_box_91'>
+        <pose>6.25 -0.4 0.075 0 0 0</pose> 
+        <inertial>
+          <mass>0.001</mass>
+          <inertia>
+            <ixx>0.0000035</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>0.0000035</iyy>
+            <iyz>0</iyz>
+            <izz>0.00000041</izz>
+          </inertia>
+        </inertial>
+        <visual name='small_box_1_visual'>
+          <geometry>
+            <box>
+              <size>0.05 0.05 0.15</size>
+            </box>
+          </geometry>
+        </visual>
+        <collision name='small_box_1_collision'>
+          <geometry>
+            <box>
+              <size>0.05 0.05 0.15</size>
+            </box>
+          </geometry>
+        </collision>
+      </link>
+      <joint name="small_box_91_joint" type="fixed">
+        <parent>float_91</parent>
+        <child>small_box_91</child>
+      </joint>
+
+      <!-- Small box 2 (front left pole, taller) -->
+      <link name='small_box_92'>
+        <pose>6.25 0.4 0.15 0 0 0</pose> <!-- Adjusted Z position for height -->
+        <inertial>
+          <mass>0.001</mass>
+          <inertia>
+            <ixx>0.0000035</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>0.0000035</iyy>
+            <iyz>0</iyz>
+            <izz>0.00000041</izz>
+          </inertia>
+        </inertial>
+        <visual name='small_box_2_visual'>
+          <geometry>
+            <box>
+              <size>0.05 0.05 0.20</size>
+            </box>
+          </geometry>
+        </visual>
+        <collision name='small_box_2_collision'>
+          <geometry>
+            <box>
+              <size>0.05 0.05 0.20</size>
+            </box>
+          </geometry>
+        </collision>
+      </link>
+      <joint name="small_box_92_joint" type="fixed">
+        <parent>float_91</parent>
+        <child>small_box_92</child>
+      </joint>
+
+      <!-- Small box 3 (rear right pole) -->
+      <link name='small_box_93'>
+        <pose>6.65 -0.4 0.075 0 0 0</pose>
+        <inertial>
+          <mass>0.001</mass>
+          <inertia>
+            <ixx>0.0000035</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>0.0000035</iyy>
+            <iyz>0</iyz>
+            <izz>0.00000041</izz>
+          </inertia>
+        </inertial>
+        <visual name='small_box_3_visual'>
+          <geometry>
+            <box>
+              <size>0.05 0.05 0.15</size>
+            </box>
+          </geometry>
+        </visual>
+        <collision name='small_box_3_collision'>
+          <geometry>
+            <box>
+              <size>0.05 0.05 0.15</size>
+            </box>
+          </geometry>
+        </collision>
+      </link>
+      <joint name="small_box_93_joint" type="fixed">
+        <parent>float_91</parent>
+        <child>small_box_93</child>
+      </joint>
+
+      <!-- Small box 4 (front right pole, taller) -->
+      <link name='small_box_94'>
+        <pose>6.65 0.4 0.15 0 0 0</pose> <!-- Adjusted Z position for height -->
+        <inertial>
+          <mass>0.001</mass>
+          <inertia>
+            <ixx>0.0000035</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>0.0000035</iyy>
+            <iyz>0</iyz>
+            <izz>0.00000041</izz>
+          </inertia>
+        </inertial>
+        <visual name='small_box_4_visual'>
+          <geometry>
+            <box>
+              <size>0.05 0.05 0.20</size>
+            </box>
+          </geometry>
+        </visual>
+        <collision name='small_box_4_collision'>
+          <geometry>
+            <box>
+              <size>0.05 0.05 0.20</size>
+            </box>
+          </geometry>
+        </collision>
+      </link>
+      <joint name="small_box_94_joint" type="fixed">
+        <parent>float_91</parent>
+        <child>small_box_94</child>
+      </joint>
+
+    <!-- Square -->
+      <link name='top_square9'>
+        <pose>6.45 0 0.2 0.1 0 0</pose> 
+        <inertial>
+          <pose>0 0 0 0 0 0</pose>
+          <mass>0.001</mass>
+          <inertia>
+            <ixx>0.0000835</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>0.000333</iyy>
+            <iyz>0</iyz>
+            <izz>0.000416</izz>
+          </inertia>
+        </inertial>
+        <visual name='top_square_visual'>
+          <geometry>
+            <box>
+              <size>2 1 0.05</size> 
+            </box>
+          </geometry>
+        </visual>
+        <collision name='top_square_collision'>
+          <geometry>
+            <box>
+              <size>2 1 0.05</size>
+            </box>
+          </geometry>
+        </collision>
+      </link>
+
+      <!-- Fixed joints to attach the square platform to each pole -->
+      <joint name="top_square_to_small_box_91" type="fixed">
+        <parent>small_box_91</parent>
+        <child>top_square9</child>
+      </joint>
+
+      <joint name="top_square_to_small_box_92" type="fixed">
+        <parent>small_box_92</parent>
+        <child>top_square9</child>
+      </joint>
+
+      <joint name="top_square_to_small_box_93" type="fixed">
+        <parent>small_box_93</parent>
+        <child>top_square9</child>
+      </joint>
+
+      <joint name="top_square_to_small_box_94" type="fixed">
+        <parent>small_box_94</parent>
+        <child>top_square9</child>
+      </joint> 
+
+  <!-- Roll10 -->
+
+      <link name='float_101'>
+        <pose>8.6 0 0 0 0 0</pose>
+        <inertial>
+          <mass>100</mass>
+          <inertia>
+            <ixx>20.541666</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>3.041666</iyy>
+            <iyz>0</iyz>
+            <izz>22.541666</izz>
+          </inertia>
+        </inertial>
+
+        <visual name='base_link_visual'>
+          <geometry>
+            <box>
+              <size>0.55 1.55 0.25</size>
+            </box>
+          </geometry>
+        </visual>
+
+        <collision name='base_link_collision'>
+          <geometry>
+            <box>
+              <size>0.55 1.55 0.25</size>
+            </box>
+          </geometry>
+        </collision>
+
+        <buoyancy>
+          <compensation>1.51</compensation>
+          <origin xyz= "0 0 0"/>
+        </buoyancy>
+      </link>
+
+      <link name='float_102'>
+        <pose>8.6 1.6 0 0 0 0</pose>
+        <inertial>
+          <mass>100</mass>
+          <inertia>
+            <ixx>20.541666</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>3.041666</iyy>
+            <iyz>0</iyz>
+            <izz>22.541666</izz>
+          </inertia>
+        </inertial>
+
+        <visual name='base_link_visual'>
+          <geometry>
+            <box>
+              <size>0.55 1.55 0.25</size>
+            </box>
+          </geometry>
+        </visual>
+
+        <collision name='base_link_collision'>
+          <geometry>
+            <box>
+              <size>0.55 1.55 0.25</size>
+            </box>
+          </geometry>
+        </collision>
+
+        <buoyancy>
+          <compensation>1.51</compensation>
+          <origin xyz= "0 0 0"/>
+        </buoyancy>
+      </link>
+
+      <link name='float_103'>
+        <pose>8.6 -1.6 0 0 0 0</pose>
+        <inertial>
+          <mass>100</mass>
+          <inertia>
+            <ixx>20.541666</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>3.041666</iyy>
+            <iyz>0</iyz>
+            <izz>22.541666</izz>
+          </inertia>
+        </inertial>
+
+        <visual name='base_link_visual'>
+          <geometry>
+            <box>
+              <size>0.55 1.55 0.25</size>
+            </box>
+          </geometry>
+        </visual>
+
+        <collision name='base_link_collision'>
+          <geometry>
+            <box>
+              <size>0.55 1.55 0.25</size>
+            </box>
+          </geometry>
+        </collision>
+
+        <buoyancy>
+          <compensation>1.51</compensation>
+          <origin xyz= "0 0 0"/>
+        </buoyancy>
+      </link>
+
+      <joint name="joint101" type="prismatic">
+        <parent>world</parent>
+        <child>float_101</child>
+        <pose>0 0 0 0 0 0</pose>
+        <axis>
+          <xyz>0 0 1</xyz>
+        </axis>
+      </joint>
+
+      <joint name="joint102" type="prismatic">
+        <parent>world</parent>
+        <child>float_102</child>
+        <pose>0 0 0 0 0 0</pose>
+        <axis>
+          <xyz>0 0 1</xyz>
+        </axis>
+      </joint>
+
+      <joint name="joint103" type="prismatic">
+        <parent>world</parent>
+        <child>float_103</child>
+        <pose>0 0 0 0 0 0</pose>
+        <axis>
+          <xyz>0 0 1</xyz>
+        </axis>
+      </joint>
+
+      <link name='small_box_101'>
+        <pose>8.4 -0.4 0.075 0 0 0</pose> 
+        <inertial>
+          <mass>0.001</mass>
+          <inertia>
+            <ixx>0.0000035</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>0.0000035</iyy>
+            <iyz>0</iyz>
+            <izz>0.00000041</izz>
+          </inertia>
+        </inertial>
+        <visual name='small_box_1_visual'>
+          <geometry>
+            <box>
+              <size>0.05 0.05 0.15</size>
+            </box>
+          </geometry>
+        </visual>
+        <collision name='small_box_1_collision'>
+          <geometry>
+            <box>
+              <size>0.05 0.05 0.15</size>
+            </box>
+          </geometry>
+        </collision>
+      </link>
+      <joint name="small_box_101_joint" type="fixed">
+        <parent>float_101</parent>
+        <child>small_box_101</child>
+      </joint>
+
+      <!-- Small box 2 (front left pole, taller) -->
+      <link name='small_box_102'>
+        <pose>8.4 0.4 0.15 0 0 0</pose> <!-- Adjusted Z position for height -->
+        <inertial>
+          <mass>0.001</mass>
+          <inertia>
+            <ixx>0.0000035</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>0.0000035</iyy>
+            <iyz>0</iyz>
+            <izz>0.00000041</izz>
+          </inertia>
+        </inertial>
+        <visual name='small_box_2_visual'>
+          <geometry>
+            <box>
+              <size>0.05 0.05 0.20</size>
+            </box>
+          </geometry>
+        </visual>
+        <collision name='small_box_2_collision'>
+          <geometry>
+            <box>
+              <size>0.05 0.05 0.20</size>
+            </box>
+          </geometry>
+        </collision>
+      </link>
+      <joint name="small_box_102_joint" type="fixed">
+        <parent>float_101</parent>
+        <child>small_box_102</child>
+      </joint>
+
+      <!-- Small box 3 (rear right pole) -->
+      <link name='small_box_103'>
+        <pose>8.8 -0.4 0.075 0 0 0</pose>
+        <inertial>
+          <mass>0.001</mass>
+          <inertia>
+            <ixx>0.0000035</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>0.0000035</iyy>
+            <iyz>0</iyz>
+            <izz>0.00000041</izz>
+          </inertia>
+        </inertial>
+        <visual name='small_box_3_visual'>
+          <geometry>
+            <box>
+              <size>0.05 0.05 0.15</size>
+            </box>
+          </geometry>
+        </visual>
+        <collision name='small_box_3_collision'>
+          <geometry>
+            <box>
+              <size>0.05 0.05 0.15</size>
+            </box>
+          </geometry>
+        </collision>
+      </link>
+      <joint name="small_box_103_joint" type="fixed">
+        <parent>float_101</parent>
+        <child>small_box_103</child>
+      </joint>
+
+      <!-- Small box 4 (front right pole, taller) -->
+      <link name='small_box_104'>
+        <pose>8.8 0.4 0.15 0 0 0</pose> <!-- Adjusted Z position for height -->
+        <inertial>
+          <mass>0.001</mass>
+          <inertia>
+            <ixx>0.0000035</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>0.0000035</iyy>
+            <iyz>0</iyz>
+            <izz>0.00000041</izz>
+          </inertia>
+        </inertial>
+        <visual name='small_box_4_visual'>
+          <geometry>
+            <box>
+              <size>0.05 0.05 0.20</size>
+            </box>
+          </geometry>
+        </visual>
+        <collision name='small_box_4_collision'>
+          <geometry>
+            <box>
+              <size>0.05 0.05 0.20</size>
+            </box>
+          </geometry>
+        </collision>
+      </link>
+      <joint name="small_box_104_joint" type="fixed">
+        <parent>float_101</parent>
+        <child>small_box_104</child>
+      </joint>
+
+    <!-- Square -->
+      <link name='top_square10'>
+        <pose>8.6 0 0.2 0.1 0 0</pose> 
+        <inertial>
+          <pose>0 0 0 0 0 0</pose>
+          <mass>0.001</mass>
+          <inertia>
+            <ixx>0.0000835</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>0.000333</iyy>
+            <iyz>0</iyz>
+            <izz>0.000416</izz>
+          </inertia>
+        </inertial>
+        <visual name='top_square_visual'>
+          <geometry>
+            <box>
+              <size>2 1 0.05</size> 
+            </box>
+          </geometry>
+        </visual>
+        <collision name='top_square_collision'>
+          <geometry>
+            <box>
+              <size>2 1 0.05</size>
+            </box>
+          </geometry>
+        </collision>
+      </link>
+
+      <!-- Fixed joints to attach the square platform to each pole -->
+      <joint name="top_square_to_small_box_101" type="fixed">
+        <parent>small_box_101</parent>
+        <child>top_square10</child>
+      </joint>
+
+      <joint name="top_square_to_small_box_102" type="fixed">
+        <parent>small_box_102</parent>
+        <child>top_square10</child>
+      </joint>
+
+      <joint name="top_square_to_small_box_103" type="fixed">
+        <parent>small_box_103</parent>
+        <child>top_square10</child>
+      </joint>
+
+      <joint name="top_square_to_small_box_104" type="fixed">
+        <parent>small_box_104</parent>
+        <child>top_square10</child>
+      </joint> 
+
+
+
+<!-- Path1 -->
+
+    <link name='Path1'>
+      <inertial>
+        <pose>-8.75 1 0.17 0 0 0</pose>
+        <mass>1</mass>
+        <inertia>
+          <ixx>0.0001</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>2.08</iyy>
+          <iyz>0</iyz>
+          <izz>2.08</izz>
+        </inertia>
+      </inertial>
+
+      <visual name='base_link_visual'>
+        <pose>-8.75 1 0.17 0 0 0 </pose>
+        <geometry>
+          <box>
+            <size>5 0.025 0.025</size>
+          </box>
+        </geometry>
+      </visual>
+
+      <collision name='base_link_collision'>
+        <pose>-8.75 1 0.17 0 0 0</pose>
+        <geometry>
+          <box>
+            <size>5 0.025 0.025</size>
+          </box>
+        </geometry>
+      </collision>
+    </link>
+
+    <joint name="pathto11" type="fixed">
+        <parent>float_12</parent>
+        <child>Path1</child>
+      </joint>
+
+      <joint name="pathto22" type="fixed">
+        <parent>float_22</parent>
+        <child>Path1</child>
+      </joint>
+
+
+    
+
+<!-- ########################################################################## -->
+
+    <!-- <joint name="joint_main" type="fixed">
+      <parent>base_link</parent>
+      <child>base_link_2</child>
+ 
+    </joint>
+
+    <joint name="sq1_main1" type="fixed">
+      <parent>square_1</parent>
+      <child>base_link_2</child>
+ 
+    </joint>
+
+    <joint name="sq1_main2" type="fixed">
+      <parent>square_1</parent>
+      <child>base_link</child>
+ 
+    </joint>
+
+    <joint name="sq2_main1" type="fixed">
+      <parent>square_2</parent>
+      <child>base_link_2</child>
+ 
+    </joint>
+
+    <joint name="sq2_main2" type="fixed">
+      <parent>square_2</parent>
+      <child>base_link</child>
+ 
+    </joint>
+
+
+    <joint name="sq3_main1" type="fixed">
+      <parent>square_3</parent>
+      <child>base_link_2</child>
+ 
+    </joint>
+
+    <joint name="sq3_main2" type="fixed">
+      <parent>square_3</parent>
+      <child>base_link</child>
+ 
+    </joint>
+
+    <joint name="sq4_main1" type="fixed">
+      <parent>square_4</parent>
+      <child>base_link_2</child>
+ 
+    </joint>
+
+    <joint name="sq4_main2" type="fixed">
+      <parent>square_4</parent>
+      <child>base_link</child>
+ 
+    </joint>
+
+    <joint name="sq5_main1" type="fixed">
+      <parent>square_5</parent>
+      <child>base_link</child>
+ 
+    </joint>
+
+    <joint name="sq5_main2" type="fixed">
+      <parent>square_5</parent>
+      <child>base_link_2</child>
+ 
+    </joint>
+
+    <joint name="sq6_main1" type="fixed">
+      <parent>square_6</parent>
+      <child>base_link_1</child>
+ 
+    </joint>
+
+    <joint name="sq6_main2" type="fixed">
+      <parent>square_6</parent>
+      <child>base_link_2</child> 
+ 
+    </joint> -->
+
   </model>
   
 </sdf>
-
-98
