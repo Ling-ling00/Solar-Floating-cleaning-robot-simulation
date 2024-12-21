@@ -1,377 +1,1486 @@
 <?xml version='1.0'?>
 <sdf version='1.5'>
 
-  <model name='path2'>
-    <pose>0 0 0 0 0 0</pose>
-
-    <link name='base_link'>
+  <model name='pathway2'>
+  <!-- <Rod21> -->
+    <link name='Rod21'>
+      <self_collide>true</self_collide>
+      <pose>-1.075 -0.2175 0.15 0 0 0</pose>
       <inertial>
-        <pose>0 0 0 0 0 0</pose>
         <mass>1</mass>
         <inertia>
-          <ixx>0.0001</ixx>
+          <ixx>0.000104167</ixx>
           <ixy>0</ixy>
           <ixz>0</ixz>
-          <iyy>2.08</iyy>
+          <iyy>33.0009</iyy>
           <iyz>0</iyz>
-          <izz>2.08</izz>
+          <izz>33.0009</izz>
         </inertia>
       </inertial>
 
-      <visual name='base_link_visual'>
-        <pose>0 0 0 0 0 0</pose>
+      <visual name='Rod2_visual'>
         <geometry>
           <box>
-            <size>5 0.025 0.025</size>
+            <size>19.9 0.025 0.025</size>
           </box>
         </geometry>
       </visual>
 
-      <collision name='base_link_collision'>
-        <pose>0 0 0 0 0 0</pose>
+      <collision name='Rod2_collision'>
         <geometry>
           <box>
-            <size>5 0.025 0.025</size>
+            <size>19.9 0.025 0.025</size>
           </box>
         </geometry>
+        <surface>
+          <friction>
+            <ode>
+              <mu>1.0</mu>
+              <mu2>1.0</mu2>
+            </ode>
+          </friction>
+        </surface>
       </collision>
     </link>
 
-    <link name='base_link_2'>
+    <joint name="jointRod11" type="prismatic">
+      <parent>world</parent>
+      <child>Rod21</child>
+      <pose>0 0 0 0 0 0</pose>
+      <axis>
+        <xyz>0 0 1</xyz>
+      </axis>
+    </joint>
+
+  <!-- <Rod22> -->
+    <link name='Rod22'>
+      <self_collide>true</self_collide>
+      <pose>-1.075 0.2175 0.15 0 0 0</pose>
       <inertial>
-        <pose>0 0.5 0 0 0 0</pose>
         <mass>1</mass>
         <inertia>
-          <ixx>0.0001</ixx>
+          <ixx>0.000104167</ixx>
           <ixy>0</ixy>
           <ixz>0</ixz>
-          <iyy>2.08</iyy>
+          <iyy>33.0009</iyy>
           <iyz>0</iyz>
-          <izz>2.08</izz>
+          <izz>33.0009</izz>
         </inertia>
       </inertial>
 
-      <visual name='base_link_visual'>
-        <pose>0 0.5 0 0 0 0</pose>
+      <visual name='Rod2_visual'>
         <geometry>
           <box>
-            <size>5 0.025 0.025</size>
+            <size>19.9 0.025 0.025</size>
           </box>
         </geometry>
       </visual>
 
-      <collision name='base_link_collision'>
-        <pose>0 0.5 0 0 0 0</pose>
+      <collision name='Rod2_collision'>
         <geometry>
           <box>
-            <size>5 0.025 0.025</size>
+            <size>19.9 0.025 0.025</size>
           </box>
         </geometry>
+        <surface>
+          <friction>
+            <ode>
+              <mu>1.0</mu>
+              <mu2>1.0</mu2>
+            </ode>
+          </friction>
+        </surface>
       </collision>
     </link>
 
-    <link name='square_1'>
+    <joint name="Rod2toRod2" type="fixed">
+      <parent>Rod21</parent>
+      <child>Rod22</child>
+    </joint>
+
+  <!-- <pathway21> -->
+ <link name='pathway2_1'>
+  <pose>-10.2 0 0.18 0 0 0</pose>
+  <inertial>
+    <mass>1</mass>
+    <inertia>
+      <ixx>0.0176417</ixx>
+      <ixy>0</ixy>
+      <ixz>0</ixz>
+      <iyy>0.0208417</iyy>
+      <iyz>0</iyz>
+      <izz>0.0384667</izz>
+    </inertia>
+  </inertial>
+
+  <visual name='pathway2h_visual'>
+    <geometry>
+      <box>
+        <size>0.5 0.46 0.01</size>
+      </box>
+    </geometry>
+  </visual>
+
+  <collision name='pathway2h_collision'>
+    <geometry>
+      <box>
+        <size>0.5 0.46 0.01</size>
+      </box>
+    </geometry>
+    <surface>
+          <friction>
+            <ode>
+              <mu>1.0</mu>
+              <mu2>1.0</mu2>
+            </ode>
+          </friction>
+    </surface>
+  </collision>
+</link>
+
+
+    <joint name="pathway2toRod211" type="fixed">
+      <parent>Rod21</parent>
+      <child>pathway2_1</child>
+    </joint>
+
+    <joint name="pathway2toRod212" type="fixed">
+      <parent>Rod22</parent>
+      <child>pathway2_1</child>
+    </joint>
+
+  <!-- <pathway22> -->
+    <link name='pathway2_2'>
+      <pose>-9.675 0 0.1725 0 0 0</pose>
       <inertial>
-        <pose>-1.55 0.25 0.001 0 0 0</pose>
-        <mass>0.001</mass>
+        <mass>1</mass>
         <inertia>
-          <ixx>0.0000000046</ixx>
+          <ixx>0.0176417</ixx>
           <ixy>0</ixy>
           <ixz>0</ixz>
-          <iyy>0.0000000046</iyy>
+          <iyy>0.0208417</iyy>
           <iyz>0</iyz>
-          <izz>0.0000052</izz>
+          <izz>0.0384667</izz>
         </inertia>
       </inertial>
 
-      <visual name='base_link_visual'>
-        <pose>-1.55  0.25 0.001 0 0 0</pose>
+      <visual name='pathway2h_visual'>
         <geometry>
           <box>
-            <size>0.5 0.5 0.015</size>
+            <size>0.5 0.46 0.01</size>
           </box>
         </geometry>
       </visual>
 
-      <collision name='base_link_collision'>
-        <pose>-1.55  0.25 0.001 0 0 0</pose>
+      <collision name='pathway2h_collision'>
         <geometry>
           <box>
-            <size>0.5 0.5 0.015</size>
+            <size>0.5 0.46 0.01</size>
           </box>
         </geometry>
+        <surface>
+              <friction>
+                <ode>
+                  <mu>1.0</mu>
+                  <mu2>1.0</mu2>
+                </ode>
+              </friction>
+            </surface>
+        <surface>
+              <friction>
+                <ode>
+                  <mu>1.0</mu>
+                  <mu2>1.0</mu2>
+                </ode>
+              </friction>
+            </surface>
       </collision>
     </link>
 
-    <link name='square_2'>
+
+    <joint name="pathway2toRod221" type="fixed">
+      <parent>Rod21</parent>
+      <child>pathway2_2</child>
+    </joint>
+
+    <joint name="pathway2toRod222" type="fixed">
+      <parent>Rod22</parent>
+      <child>pathway2_2</child>
+    </joint>
+  <!-- <pathway23> -->
+    <link name='pathway2_3'>
+      <pose>-9.15 0 0.1725 0 0 0</pose>
       <inertial>
-        <pose>-1 0.25 0.001 0 0 0</pose>
-        <mass>0.001</mass>
+        <mass>1</mass>
         <inertia>
-          <ixx>0.0000000046</ixx>
+          <ixx>0.0176417</ixx>
           <ixy>0</ixy>
           <ixz>0</ixz>
-          <iyy>0.0000000046</iyy>
+          <iyy>0.0208417</iyy>
           <iyz>0</iyz>
-          <izz>0.0000052</izz>
+          <izz>0.0384667</izz>
         </inertia>
       </inertial>
 
-      <visual name='base_link_visual'>
-        <pose>-1  0.25 0.001 0 0 0</pose>
+      <visual name='pathway2h_visual'>
         <geometry>
           <box>
-            <size>0.5 0.5 0.015</size>
+            <size>0.5 0.46 0.01</size>
           </box>
         </geometry>
       </visual>
 
-      <collision name='base_link_collision'>
-        <pose>-1  0.25 0.001 0 0 0</pose>
+      <collision name='pathway2h_collision'>
         <geometry>
           <box>
-            <size>0.5 0.5 0.015</size>
+            <size>0.5 0.46 0.01</size>
           </box>
         </geometry>
+        <surface>
+          <friction>
+            <ode>
+              <mu>1.0</mu>
+              <mu2>1.0</mu2>
+            </ode>
+          </friction>
+        </surface>
       </collision>
     </link>
 
-    <link name='square_3'>
+    <joint name="pathway2toRod231" type="fixed">
+      <parent>Rod21</parent>
+      <child>pathway2_3</child>
+    </joint>
+
+    <joint name="pathway2toRod232" type="fixed">
+      <parent>Rod22</parent>
+      <child>pathway2_3</child>
+    </joint>
+
+  <!-- <pathway24> -->
+    <link name='pathway2_4'>
+      <pose>-8.05 0 0.1725 0 0 0</pose>
       <inertial>
-        <pose>-0.45 0.25 0.001 0 0 0</pose>
-        <mass>0.001</mass>
+        <mass>1</mass>
         <inertia>
-          <ixx>0.0000000046</ixx>
+          <ixx>0.0176417</ixx>
           <ixy>0</ixy>
           <ixz>0</ixz>
-          <iyy>0.0000000046</iyy>
+          <iyy>0.0208417</iyy>
           <iyz>0</iyz>
-          <izz>0.0000052</izz>
+          <izz>0.0384667</izz>
         </inertia>
       </inertial>
 
-      <visual name='base_link_visual'>
-        <pose>-0.45  0.25 0.001 0 0 0</pose>
+      <visual name='pathway2h_visual'>
         <geometry>
           <box>
-            <size>0.5 0.5 0.015</size>
+            <size>0.5 0.46 0.01</size>
           </box>
         </geometry>
       </visual>
 
-      <collision name='base_link_collision'>
-        <pose>-0.45 0.25 0.001 0 0 0</pose>
+      <collision name='pathway2h_collision'>
         <geometry>
           <box>
-            <size>0.5 0.5 0.015</size>
+            <size>0.5 0.46 0.01</size>
           </box>
         </geometry>
+        <surface>
+          <friction>
+            <ode>
+              <mu>1.0</mu>
+              <mu2>1.0</mu2>
+            </ode>
+          </friction>
+        </surface>
       </collision>
     </link>
 
-    <link name='square_4'>
+
+    <joint name="pathway2toRod241" type="fixed">
+      <parent>Rod21</parent>
+      <child>pathway2_4</child>
+    </joint>
+
+    <joint name="pathway2toRod242" type="fixed">
+      <parent>Rod22</parent>
+      <child>pathway2_4</child>
+    </joint>
+
+  <!-- <pathway25> -->
+    <link name='pathway2_5'>
+      <pose>-7.525 0 0.1725 0 0 0</pose>
       <inertial>
-        <pose>0.55 0.25 0.001 0 0 0</pose>
-        <mass>0.001</mass>
+        <mass>1</mass>
         <inertia>
-          <ixx>0.0000000046</ixx>
+          <ixx>0.0176417</ixx>
           <ixy>0</ixy>
           <ixz>0</ixz>
-          <iyy>0.0000000046</iyy>
+          <iyy>0.0208417</iyy>
           <iyz>0</iyz>
-          <izz>0.0000052</izz>
+          <izz>0.0384667</izz>
         </inertia>
       </inertial>
 
-      <visual name='base_link_visual'>
-        <pose>0.55  0.25 0.001 0 0 0</pose>
+      <visual name='pathway2h_visual'>
         <geometry>
           <box>
-            <size>0.5 0.5 0.015</size>
+            <size>0.5 0.46 0.01</size>
           </box>
         </geometry>
       </visual>
 
-      <collision name='base_link_collision'>
-        <pose>0.55 0.25 0.001 0 0 0</pose>
+      <collision name='pathway2h_collision'>
         <geometry>
           <box>
-            <size>0.5 0.5 0.015</size>
+            <size>0.5 0.46 0.01</size>
           </box>
         </geometry>
+        <surface>
+              <friction>
+                <ode>
+                  <mu>1.0</mu>
+                  <mu2>1.0</mu2>
+                </ode>
+              </friction>
+            </surface>
       </collision>
     </link>
 
-    <link name='square_5'>
+
+
+
+    <joint name="pathway2toRod251" type="fixed">
+      <parent>Rod21</parent>
+      <child>pathway2_5</child>
+    </joint>
+
+    <joint name="pathway2toRod252" type="fixed">
+      <parent>Rod22</parent>
+      <child>pathway2_5</child>
+    </joint>    
+
+  <!-- <pathway26> -->
+    <link name='pathway2_6'>
+      <pose>-7.0 0 0.1725 0 0 0</pose>
       <inertial>
-        <pose>1.1 0.25 0.001 0 0 0</pose>
-        <mass>0.001</mass>
+        <mass>1</mass>
         <inertia>
-          <ixx>0.0000000046</ixx>
+          <ixx>0.0176417</ixx>
           <ixy>0</ixy>
           <ixz>0</ixz>
-          <iyy>0.0000000046</iyy>
+          <iyy>0.0208417</iyy>
           <iyz>0</iyz>
-          <izz>0.0000052</izz>
+          <izz>0.0384667</izz>
         </inertia>
       </inertial>
 
-      <visual name='base_link_visual'>
-        <pose>1.1  0.25 0.001 0 0 0</pose>
+      <visual name='pathway2h_visual'>
         <geometry>
           <box>
-            <size>0.5 0.5 0.015</size>
+            <size>0.5 0.46 0.01</size>
           </box>
         </geometry>
       </visual>
 
-      <collision name='base_link_collision'>
-        <pose>1.1 0.25 0.001 0 0 0</pose>
+      <collision name='pathway2h_collision'>
         <geometry>
           <box>
-            <size>0.5 0.5 0.015</size>
+            <size>0.5 0.46 0.01</size>
           </box>
         </geometry>
+        <surface>
+          <friction>
+            <ode>
+              <mu>1.0</mu>
+              <mu2>1.0</mu2>
+            </ode>
+          </friction>
+        </surface>
       </collision>
     </link>
 
-    <link name='square_6'>
+
+    <joint name="pathway2toRod261" type="fixed">
+      <parent>Rod21</parent>
+      <child>pathway2_6</child>
+    </joint>
+
+    <joint name="pathway2toRod262" type="fixed">
+      <parent>Rod22</parent>
+      <child>pathway2_6</child>
+    </joint>
+
+  <!-- <pathway27> -->
+    <link name='pathway2_7'>
+      <pose>-5.9 0 0.1725 0 0 0</pose>
       <inertial>
-        <pose>1.65 0.25 0.001 0 0 0</pose>
-        <mass>0.001</mass>
+        <mass>1</mass>
         <inertia>
-          <ixx>0.0000000046</ixx>
+          <ixx>0.0176417</ixx>
           <ixy>0</ixy>
           <ixz>0</ixz>
-          <iyy>0.0000000046</iyy>
+          <iyy>0.0208417</iyy>
           <iyz>0</iyz>
-          <izz>0.0000052</izz>
+          <izz>0.0384667</izz>
         </inertia>
       </inertial>
 
-      <visual name='base_link_visual'>
-        <pose>1.65  0.25 0.001 0 0 0</pose>
+      <visual name='pathway2h_visual'>
         <geometry>
           <box>
-            <size>0.5 0.5 0.015</size>
+            <size>0.5 0.46 0.01</size>
           </box>
         </geometry>
       </visual>
 
-      <collision name='base_link_collision'>
-        <pose>1.65 0.25 0.001 0 0 0</pose>
+      <collision name='pathway2h_collision'>
         <geometry>
           <box>
-            <size>0.5 0.5 0.015</size>
+            <size>0.5 0.46 0.01</size>
           </box>
         </geometry>
+        <surface>
+          <friction>
+            <ode>
+              <mu>1.0</mu>
+              <mu2>1.0</mu2>
+            </ode>
+          </friction>
+        </surface>
       </collision>
     </link>
 
-<!-- ########################################################################## -->
 
-    <joint name="joint_main" type="fixed">
-      <parent>base_link</parent>
-      <child>base_link_2</child>
- 
+    <joint name="pathway2toRod271" type="fixed">
+      <parent>Rod21</parent>
+      <child>pathway2_7</child>
     </joint>
 
-    <joint name="sq1_main1" type="fixed">
-      <parent>square_1</parent>
-      <child>base_link_2</child>
- 
+    <joint name="pathway2toRod272" type="fixed">
+      <parent>Rod22</parent>
+      <child>pathway2_7</child>
     </joint>
 
-    <joint name="sq1_main2" type="fixed">
-      <parent>square_1</parent>
-      <child>base_link</child>
- 
+  <!-- <pathway28> -->
+    <link name='pathway2_8'>
+      <pose>-5.375 0 0.1725 0 0 0</pose>
+      <inertial>
+        <mass>1</mass>
+        <inertia>
+          <ixx>0.0176417</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>0.0208417</iyy>
+          <iyz>0</iyz>
+          <izz>0.0384667</izz>
+        </inertia>
+      </inertial>
+
+      <visual name='pathway2h_visual'>
+        <geometry>
+          <box>
+            <size>0.5 0.46 0.01</size>
+          </box>
+        </geometry>
+      </visual>
+
+      <collision name='pathway2h_collision'>
+        <geometry>
+          <box>
+            <size>0.5 0.46 0.01</size>
+          </box>
+        </geometry>
+        <surface>
+              <friction>
+                <ode>
+                  <mu>1.0</mu>
+                  <mu2>1.0</mu2>
+                </ode>
+              </friction>
+            </surface>
+      </collision>
+    </link>
+
+
+    <joint name="pathway2toRod281" type="fixed">
+      <parent>Rod21</parent>
+      <child>pathway2_8</child>
     </joint>
 
-    <joint name="sq2_main1" type="fixed">
-      <parent>square_2</parent>
-      <child>base_link_2</child>
- 
+    <joint name="pathway2toRod282" type="fixed">
+      <parent>Rod22</parent>
+      <child>pathway2_8</child>
+    </joint>     
+
+  <!-- <pathway29> -->
+    <link name='pathway2_9'>
+      <pose>-4.85 0 0.1725 0 0 0</pose>
+      <inertial>
+        <mass>1</mass>
+        <inertia>
+          <ixx>0.0176417</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>0.0208417</iyy>
+          <iyz>0</iyz>
+          <izz>0.0384667</izz>
+        </inertia>
+      </inertial>
+
+      <visual name='pathway2h_visual'>
+        <geometry>
+          <box>
+            <size>0.5 0.46 0.01</size>
+          </box>
+        </geometry>
+      </visual>
+
+      <collision name='pathway2h_collision'>
+        <geometry>
+          <box>
+            <size>0.5 0.46 0.01</size>
+          </box>
+        </geometry>
+        <surface>
+          <friction>
+            <ode>
+              <mu>1.0</mu>
+              <mu2>1.0</mu2>
+            </ode>
+          </friction>
+        </surface>
+      </collision>
+    </link>
+
+
+    <joint name="pathway2toRod291" type="fixed">
+      <parent>Rod21</parent>
+      <child>pathway2_9</child>
     </joint>
 
-    <joint name="sq2_main2" type="fixed">
-      <parent>square_2</parent>
-      <child>base_link</child>
- 
+    <joint name="pathway2toRod292" type="fixed">
+      <parent>Rod22</parent>
+      <child>pathway2_9</child>
+    </joint>   
+
+  <!-- <pathway210> -->
+    <link name='pathway2_10'>
+      <pose>-3.75 0 0.1725 0 0 0</pose>
+      <inertial>
+        <mass>1</mass>
+        <inertia>
+          <ixx>0.0176417</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>0.0208417</iyy>
+          <iyz>0</iyz>
+          <izz>0.0384667</izz>
+        </inertia>
+      </inertial>
+
+      <visual name='pathway2h_visual'>
+        <geometry>
+          <box>
+            <size>0.5 0.46 0.01</size>
+          </box>
+        </geometry>
+      </visual>
+
+      <collision name='pathway2h_collision'>
+        <geometry>
+          <box>
+            <size>0.5 0.46 0.01</size>
+          </box>
+        </geometry>
+        <surface>
+          <friction>
+            <ode>
+              <mu>1.0</mu>
+              <mu2>1.0</mu2>
+            </ode>
+          </friction>
+        </surface>
+      </collision>
+    </link>
+
+
+    <joint name="pathway2toRod2101" type="fixed">
+      <parent>Rod21</parent>
+      <child>pathway2_10</child>
     </joint>
 
+    <joint name="pathway2toRod2102" type="fixed">
+      <parent>Rod22</parent>
+      <child>pathway2_10</child>
+    </joint>   
 
-    <joint name="sq3_main1" type="fixed">
-      <parent>square_3</parent>
-      <child>base_link_2</child>
- 
+  <!-- <pathway211> -->
+    <link name='pathway2_11'>
+      <pose>-3.225 0 0.1725 0 0 0</pose>
+      <inertial>
+        <mass>1</mass>
+        <inertia>
+          <ixx>0.0176417</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>0.0208417</iyy>
+          <iyz>0</iyz>
+          <izz>0.0384667</izz>
+        </inertia>
+      </inertial>
+
+      <visual name='pathway2h_visual'>
+        <geometry>
+          <box>
+            <size>0.5 0.46 0.01</size>
+          </box>
+        </geometry>
+      </visual>
+
+      <collision name='pathway2h_collision'>
+        <geometry>
+          <box>
+            <size>0.5 0.46 0.01</size>
+          </box>
+        </geometry>
+        <surface>
+          <friction>
+            <ode>
+              <mu>1.0</mu>
+              <mu2>1.0</mu2>
+            </ode>
+          </friction>
+        </surface>
+      </collision>
+    </link>
+
+
+    <joint name="pathway2toRod2111" type="fixed">
+      <parent>Rod21</parent>
+      <child>pathway2_11</child>
     </joint>
 
-    <joint name="sq3_main2" type="fixed">
-      <parent>square_3</parent>
-      <child>base_link</child>
- 
+    <joint name="pathway2toRod2112" type="fixed">
+      <parent>Rod22</parent>
+      <child>pathway2_11</child>
+    </joint>   
+
+  <!-- <pathway212> -->
+    <link name='pathway2_12'>
+      <pose>-2.7 0 0.1725 0 0 0</pose>
+      <inertial>
+        <mass>1</mass>
+       <inertia>
+          <ixx>0.0176417</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>0.0208417</iyy>
+          <iyz>0</iyz>
+          <izz>0.0384667</izz>
+        </inertia>
+      </inertial>
+
+      <visual name='pathway2h_visual'>
+        <geometry>
+          <box>
+            <size>0.5 0.46 0.01</size>
+          </box>
+        </geometry>
+      </visual>
+
+      <collision name='pathway2h_collision'>
+        <geometry>
+          <box>
+            <size>0.5 0.46 0.01</size>
+          </box>
+        </geometry>
+        <surface>
+          <friction>
+            <ode>
+              <mu>1.0</mu>
+              <mu2>1.0</mu2>
+            </ode>
+          </friction>
+        </surface>
+      </collision>
+    </link>
+
+
+    <joint name="pathway2toRod2121" type="fixed">
+      <parent>Rod21</parent>
+      <child>pathway2_12</child>
     </joint>
 
-    <joint name="sq4_main1" type="fixed">
-      <parent>square_4</parent>
-      <child>base_link_2</child>
- 
+    <joint name="pathway2toRod2122" type="fixed">
+      <parent>Rod22</parent>
+      <child>pathway2_12</child>
     </joint>
 
-    <joint name="sq4_main2" type="fixed">
-      <parent>square_4</parent>
-      <child>base_link</child>
- 
+  <!-- <pathway213> -->
+    <link name='pathway2_13'>
+      <pose>-1.6 0 0.1725 0 0 0</pose>
+      <inertial>
+        <mass>1</mass>
+        <inertia>
+          <ixx>0.0176417</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>0.0208417</iyy>
+          <iyz>0</iyz>
+          <izz>0.0384667</izz>
+        </inertia>
+      </inertial>
+
+      <visual name='pathway2h_visual'>
+        <geometry>
+          <box>
+            <size>0.5 0.46 0.01</size>
+          </box>
+        </geometry>
+      </visual>
+
+      <collision name='pathway2h_collision'>
+        <geometry>
+          <box>
+            <size>0.5 0.46 0.01</size>
+          </box>
+        </geometry>
+        <surface>
+          <friction>
+            <ode>
+              <mu>1.0</mu>
+              <mu2>1.0</mu2>
+            </ode>
+          </friction>
+        </surface>
+      </collision>
+    </link>
+
+
+    <joint name="pathway2toRod2131" type="fixed">
+      <parent>Rod21</parent>
+      <child>pathway2_13</child>
     </joint>
 
-    <joint name="sq5_main1" type="fixed">
-      <parent>square_5</parent>
-      <child>base_link</child>
- 
+    <joint name="pathway2toRod2132" type="fixed">
+      <parent>Rod22</parent>
+      <child>pathway2_13</child>
     </joint>
 
-    <joint name="sq5_main2" type="fixed">
-      <parent>square_5</parent>
-      <child>base_link_2</child>
- 
+  <!-- <pathway214> -->
+    <link name='pathway2_14'>
+      <pose>-1.075 0 0.1725 0 0 0</pose>
+      <inertial>
+        <mass>1</mass>
+       <inertia>
+          <ixx>0.0176417</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>0.0208417</iyy>
+          <iyz>0</iyz>
+          <izz>0.0384667</izz>
+        </inertia>
+      </inertial>
+
+      <visual name='pathway2h_visual'>
+        <geometry>
+          <box>
+            <size>0.5 0.46 0.01</size>
+          </box>
+        </geometry>
+      </visual>
+
+      <collision name='pathway2h_collision'>
+        <geometry>
+          <box>
+            <size>0.5 0.46 0.01</size>
+          </box>
+        </geometry>
+        <surface>
+          <friction>
+            <ode>
+              <mu>1.0</mu>
+              <mu2>1.0</mu2>
+            </ode>
+          </friction>
+        </surface>
+      </collision>
+    </link>
+
+
+    <joint name="pathway2toRod2141" type="fixed">
+      <parent>Rod21</parent>
+      <child>pathway2_14</child>
     </joint>
 
-    <joint name="sq6_main1" type="fixed">
-      <parent>square_6</parent>
-      <child>base_link_1</child>
- 
+    <joint name="pathway2toRod2142" type="fixed">
+      <parent>Rod22</parent>
+      <child>pathway2_14</child>
     </joint>
 
-    <joint name="sq6_main2" type="fixed">
-      <parent>square_6</parent>
-      <child>base_link_2</child>
- 
+  <!-- <pathway215> -->
+    <link name='pathway2_15'>
+      <pose>-0.55 0 0.1725 0 0 0</pose>
+      <inertial>
+        <mass>1</mass>
+        <inertia>
+          <ixx>0.0176417</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>0.0208417</iyy>
+          <iyz>0</iyz>
+          <izz>0.0384667</izz>
+        </inertia>
+      </inertial>
+
+      <visual name='pathway2h_visual'>
+        <geometry>
+          <box>
+            <size>0.5 0.46 0.01</size>
+          </box>
+        </geometry>
+      </visual>
+
+      <collision name='pathway2h_collision'>
+        <geometry>
+          <box>
+            <size>0.5 0.46 0.01</size>
+          </box>
+        </geometry>
+        <surface>
+          <friction>
+            <ode>
+              <mu>1.0</mu>
+              <mu2>1.0</mu2>
+            </ode>
+          </friction>
+        </surface>
+      </collision>
+    </link>
+
+
+    <joint name="pathway2toRod2151" type="fixed">
+      <parent>Rod21</parent>
+      <child>pathway2_15</child>
     </joint>
 
+    <joint name="pathway2toRod2152" type="fixed">
+      <parent>Rod22</parent>
+      <child>pathway2_15</child>
+    </joint>
 
-    
+  <!-- <pathway216> -->
+    <link name='pathway2_16'>
+      <pose>0.55 0 0.1725 0 0 0</pose>
+      <inertial>
+        <mass>1</mass>
+        <inertia>
+          <ixx>0.0176417</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>0.0208417</iyy>
+          <iyz>0</iyz>
+          <izz>0.0384667</izz>
+        </inertia>
+      </inertial>
+
+      <visual name='pathway2h_visual'>
+        <geometry>
+          <box>
+            <size>0.5 0.46 0.01</size>
+          </box>
+        </geometry>
+      </visual>
+
+      <collision name='pathway2h_collision'>
+        <geometry>
+          <box>
+            <size>0.5 0.46 0.01</size>
+          </box>
+        </geometry>
+        <surface>
+          <friction>
+            <ode>
+              <mu>1.0</mu>
+              <mu2>1.0</mu2>
+            </ode>
+          </friction>
+        </surface>
+      </collision>
+    </link>
 
 
+    <joint name="pathway2toRod2161" type="fixed">
+      <parent>Rod21</parent>
+      <child>pathway2_16</child>
+    </joint>
+
+    <joint name="pathway2toRod2162" type="fixed">
+      <parent>Rod22</parent>
+      <child>pathway2_16</child>
+    </joint>
+
+  <!-- <pathway217> -->
+    <link name='pathway2_17'>
+      <pose>1.075 0 0.1725 0 0 0</pose>
+      <inertial>
+        <mass>1</mass>
+        <inertia>
+          <ixx>0.0176417</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>0.0208417</iyy>
+          <iyz>0</iyz>
+          <izz>0.0384667</izz>
+        </inertia>
+      </inertial>
+
+      <visual name='pathway2h_visual'>
+        <geometry>
+          <box>
+            <size>0.5 0.46 0.01</size>
+          </box>
+        </geometry>
+      </visual>
+
+      <collision name='pathway2h_collision'>
+        <geometry>
+          <box>
+            <size>0.5 0.46 0.01</size>
+          </box>
+        </geometry>
+        <surface>
+          <friction>
+            <ode>
+              <mu>1.0</mu>
+              <mu2>1.0</mu2>
+            </ode>
+          </friction>
+        </surface>
+      </collision>
+    </link>
+
+    <joint name="pathway2toRod2171" type="fixed">
+      <parent>Rod21</parent>
+      <child>pathway2_17</child>
+    </joint>
+
+    <joint name="pathway2toRod2172" type="fixed">
+      <parent>Rod22</parent>
+      <child>pathway2_17</child>
+    </joint>
+
+  <!-- <pathway218> -->
+    <link name='pathway2_18'>
+      <pose>1.6 0 0.1725 0 0 0</pose>
+      <inertial>
+        <mass>1</mass>
+        <inertia>
+          <ixx>0.0176417</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>0.0208417</iyy>
+          <iyz>0</iyz>
+          <izz>0.0384667</izz>
+        </inertia>
+      </inertial>
+
+      <visual name='pathway2h_visual'>
+        <geometry>
+          <box>
+            <size>0.5 0.46 0.01</size>
+          </box>
+        </geometry>
+      </visual>
+
+      <collision name='pathway2h_collision'>
+        <geometry>
+          <box>
+            <size>0.5 0.46 0.01</size>
+          </box>
+        </geometry>
+        <surface>
+          <friction>
+            <ode>
+              <mu>1.0</mu>
+              <mu2>1.0</mu2>
+            </ode>
+          </friction>
+        </surface>
+      </collision>
+    </link>
 
 
-    <!-- buoyancy plugin -->
-    <plugin name="freebuoyancy_gazebo" filename="libfreebuoyancy_gazebo.so">
-      <descriptionParam>robot_description</descriptionParam>
-      <fluidTopic>current</fluidTopic>
-      <alwaysOn>true</alwaysOn>
-      <surface>0 0 0</surface>
-      <updateRate>.001</updateRate>
+    <joint name="pathway2toRod2181" type="fixed">
+      <parent>Rod21</parent>
+      <child>pathway2_18</child>
+    </joint>
 
-      <!-- <link name='base_link'>
-        <buoyancy>
-          <compensation>0.15</compensation>
-          <origin xyz= "0 0 0"/>
-        </buoyancy>
-      </link> -->
+    <joint name="pathway2toRod2182" type="fixed">
+      <parent>Rod22</parent>
+      <child>pathway2_18</child>
+    </joint>
 
-    </plugin>
+  <!-- <pathway219> -->
+    <link name='pathway2h_19'>
+      <pose>2.7 0 0.1725 0 0 0</pose>
+      <inertial>
+        <mass>1</mass>
+        <inertia>
+        <!-- 1/12 * m *( x y z + 2 ) -->
+          <ixx>0.0176417</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>0.0208417</iyy>
+          <iyz>0</iyz>
+          <izz>0.0384667</izz>
+        </inertia>
+      </inertial>
+
+      <visual name='pathway2h_visual'>
+        <geometry>
+          <box>
+            <size>0.5 0.46 0.01</size>
+          </box>
+        </geometry>
+      </visual>
+
+      <collision name='pathway2h_collision'>
+        <geometry>
+          <box>
+            <size>0.5 0.46 0.01</size>
+          </box>
+        </geometry>
+        <surface>
+          <friction>
+            <ode>
+              <mu>1.0</mu>
+              <mu2>1.0</mu2>
+            </ode>
+          </friction>
+        </surface>
+      </collision>
+    </link>
+
+    <joint name="pathway2htoRod2d191" type="fixed">
+      <parent>Rod21</parent>
+      <child>pathway2h_19</child>
+    </joint>
+
+    <joint name="pathway2htoRod2d192" type="fixed">
+      <parent>Rod22</parent>
+      <child>pathway2h_19</child>
+    </joint>              
+  <!-- <pathway220> -->
+    <link name='pathway2_20'>
+      <pose>3.225 0 0.1725 0 0 0</pose>
+      <inertial>
+        <mass>1</mass>
+        <inertia>
+           <ixx>0.0176417</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>0.0208417</iyy>
+          <iyz>0</iyz>
+          <izz>0.0384667</izz>
+        </inertia>
+      </inertial>
+
+      <visual name='pathway2h_visual'>
+        <geometry>
+          <box>
+            <size>0.5 0.46 0.01</size>
+          </box>
+        </geometry>
+      </visual>
+
+      <collision name='pathway2h_collision'>
+        <geometry>
+          <box>
+            <size>0.5 0.46 0.01</size>
+          </box>
+        </geometry>
+        <surface>
+          <friction>
+            <ode>
+              <mu>1.0</mu>
+              <mu2>1.0</mu2>
+            </ode>
+          </friction>
+        </surface>
+      </collision>
+    </link>
+
+    <joint name="pathway2toRod2201" type="fixed">
+      <parent>Rod21</parent>
+      <child>pathway2_20</child>
+    </joint>
+
+    <joint name="pathway2toRod2202" type="fixed">
+      <parent>Rod22</parent>
+      <child>pathway2_20</child>
+    </joint>
+
+  <!-- <pathway221> -->
+    <link name='pathway2_21'>
+      <pose>3.75 0 0.1725 0 0 0</pose>
+      <inertial>
+        <mass>1</mass>
+        <inertia>
+          <ixx>0.0176417</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>0.0208417</iyy>
+          <iyz>0</iyz>
+          <izz>0.0384667</izz>
+        </inertia>
+      </inertial>
+
+      <visual name='pathway2h_visual'>
+        <geometry>
+          <box>
+            <size>0.5 0.46 0.01</size>
+          </box>
+        </geometry>
+      </visual>
+
+      <collision name='pathway2h_collision'>
+        <geometry>
+          <box>
+            <size>0.5 0.46 0.01</size>
+          </box>
+        </geometry>
+        <surface>
+              <friction>
+                <ode>
+                  <mu>1.0</mu>
+                  <mu2>1.0</mu2>
+                </ode>
+              </friction>
+            </surface>
+      </collision>
+    </link>
+
+
+    <joint name="pathway2toRod2211" type="fixed">
+      <parent>Rod21</parent>
+      <child>pathway2_21</child>
+    </joint>
+
+    <joint name="pathway2toRod2212" type="fixed">
+      <parent>Rod22</parent>
+      <child>pathway2_21</child>
+    </joint>  
+
+  <!-- <pathway222> -->
+    <link name='pathway2_22'>
+      <pose>4.85 0 0.1725 0 0 0</pose>
+      <inertial>
+        <mass>1</mass>
+        <inertia>
+          <ixx>0.0176417</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>0.0208417</iyy>
+          <iyz>0</iyz>
+          <izz>0.0384667</izz>
+        </inertia>
+      </inertial>
+
+      <visual name='pathway2h_visual'>
+        <geometry>
+          <box>
+            <size>0.5 0.46 0.01</size>
+          </box>
+        </geometry>
+      </visual>
+
+      <collision name='pathway2h_collision'>
+        <geometry>
+          <box>
+            <size>0.5 0.46 0.01</size>
+          </box>
+        </geometry>
+        <surface>
+          <friction>
+            <ode>
+              <mu>1.0</mu>
+              <mu2>1.0</mu2>
+            </ode>
+          </friction>
+        </surface>
+      </collision>
+    </link>
+
+
+    <joint name="pathway2toRod2221" type="fixed">
+      <parent>Rod21</parent>
+      <child>pathway2_22</child>
+    </joint>
+
+    <joint name="pathway2toRod2222" type="fixed">
+      <parent>Rod22</parent>
+      <child>pathway2_22</child>
+    </joint>
+
+  <!-- <pathway223> -->
+    <link name='pathway2_23'>
+      <pose>5.375 0 0.1725 0 0 0</pose>
+      <inertial>
+        <mass>1</mass>
+        <inertia>
+          <ixx>0.0176417</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>0.0208417</iyy>
+          <iyz>0</iyz>
+          <izz>0.0384667</izz>
+        </inertia>
+      </inertial>
+
+      <visual name='pathway2h_visual'>
+        <geometry>
+          <box>
+            <size>0.5 0.46 0.01</size>
+          </box>
+        </geometry>
+      </visual>
+
+      <collision name='pathway2h_collision'>
+        <geometry>
+          <box>
+            <size>0.5 0.46 0.01</size>
+          </box>
+        </geometry>
+        <surface>
+          <friction>
+            <ode>
+              <mu>1.0</mu>
+              <mu2>1.0</mu2>
+            </ode>
+          </friction>
+        </surface>
+      </collision>
+    </link>
+
+
+    <joint name="pathway2toRod2231" type="fixed">
+      <parent>Rod21</parent>
+      <child>pathway2_23</child>
+    </joint>
+
+    <joint name="pathway2toRod2232" type="fixed">
+      <parent>Rod22</parent>
+      <child>pathway2_23</child>
+    </joint>
+
+  <!-- <pathway224> -->
+    <link name='pathway2_24'>
+      <pose>5.9 0 0.1725 0 0 0</pose>
+      <inertial>
+        <mass>1</mass>
+        <inertia>
+          <ixx>0.0176417</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>0.0208417</iyy>
+          <iyz>0</iyz>
+          <izz>0.0384667</izz>
+        </inertia>
+      </inertial>
+
+      <visual name='pathway2h_visual'>
+        <geometry>
+          <box>
+            <size>0.5 0.46 0.01</size>
+          </box>
+        </geometry>
+      </visual>
+
+      <collision name='pathway2h_collision'>
+        <geometry>
+          <box>
+            <size>0.5 0.46 0.01</size>
+          </box>
+        </geometry>
+        <surface>
+          <friction>
+            <ode>
+              <mu>1.0</mu>
+              <mu2>1.0</mu2>
+            </ode>
+          </friction>
+        </surface>
+      </collision>
+    </link>
+
+    <joint name="pathway2toRod2241" type="fixed">
+      <parent>Rod21</parent>
+      <child>pathway2_24</child>
+    </joint>
+
+    <joint name="pathway2toRod2242" type="fixed">
+      <parent>Rod22</parent>
+      <child>pathway2_24</child>
+    </joint>       
+
+  <!-- <pathway225> -->
+    <link name='pathway2_25'>
+      <pose>7.0 0 0.1725 0 0 0</pose>
+      <inertial>
+        <mass>1</mass>
+        <inertia>
+          <ixx>0.0176417</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>0.0208417</iyy>
+          <iyz>0</iyz>
+          <izz>0.0384667</izz>
+        </inertia>
+      </inertial>
+
+      <visual name='pathway2h_visual'>
+        <geometry>
+          <box>
+            <size>0.5 0.46 0.01</size>
+          </box>
+        </geometry>
+      </visual>
+
+      <collision name='pathway2h_collision'>
+        <geometry>
+          <box>
+            <size>0.5 0.46 0.01</size>
+          </box>
+        </geometry>
+        <surface>
+          <friction>
+            <ode>
+              <mu>1.0</mu>
+              <mu2>1.0</mu2>
+            </ode>
+          </friction>
+        </surface>
+      </collision>
+    </link>
+
+
+    <joint name="pathway2toRod2251" type="fixed">
+      <parent>Rod21</parent>
+      <child>pathway2_25</child>
+    </joint>
+
+    <joint name="pathway2toRod2252" type="fixed">
+      <parent>Rod22</parent>
+      <child>pathway2_25</child>
+    </joint>  
+
+  <!-- <pathway226> -->
+    <link name='pathway2_26'>
+      <pose>7.525 0 0.1725 0 0 0</pose>
+      <inertial>
+        <mass>1</mass>
+        <inertia>
+          <ixx>0.0176417</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>0.0208417</iyy>
+          <iyz>0</iyz>
+          <izz>0.0384667</izz>
+        </inertia>
+      </inertial>
+
+      <visual name='pathway2h_visual'>
+        <geometry>
+          <box>
+            <size>0.5 0.46 0.01</size>
+          </box>
+        </geometry>
+      </visual>
+
+      <collision name='pathway2h_collision'>
+        <geometry>
+          <box>
+            <size>0.5 0.46 0.01</size>
+          </box>
+        </geometry>
+        <surface>
+          <friction>
+            <ode>
+              <mu>1.0</mu>
+              <mu2>1.0</mu2>
+            </ode>
+          </friction>
+        </surface>
+      </collision>
+    </link>
+
+
+    <joint name="pathway2toRod2261" type="fixed">
+      <parent>Rod21</parent>
+      <child>pathway2_26</child>
+    </joint>
+
+    <joint name="pathway2toRod2262" type="fixed">
+      <parent>Rod22</parent>
+      <child>pathway2_26</child>
+    </joint>  
+
+  <!-- <pathway227> -->
+
+    <link name='pathway2_27'>
+      <pose>8.05 0 0.1725 0 0 0</pose>
+      <inertial>
+        <mass>1</mass>
+        <inertia>
+          <ixx>0.0176417</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>0.0208417</iyy>
+          <iyz>0</iyz>
+          <izz>0.0384667</izz>
+        </inertia>
+      </inertial>
+
+      <visual name='pathway2h_visual'>
+        <geometry>
+          <box>
+            <size>0.5 0.46 0.01</size>
+          </box>
+        </geometry>
+      </visual>
+
+      <collision name='pathway2h_collision'>
+        <geometry>
+          <box>
+            <size>0.5 0.46 0.01</size>
+          </box>
+        </geometry>
+        <surface>
+          <friction>
+            <ode>
+              <mu>1.0</mu>
+              <mu2>1.0</mu2>
+            </ode>
+          </friction>
+        </surface>
+      </collision>
+    </link>
+
+
+    <joint name="pathway2toRod2271" type="fixed">
+      <parent>Rod21</parent>
+      <child>pathway2_27</child>
+    </joint>
+
+    <joint name="pathway2toRod2272" type="fixed">
+      <parent>Rod22</parent>
+      <child>pathway2_27</child>
+    </joint>  
 
   </model>
+
   
 </sdf>

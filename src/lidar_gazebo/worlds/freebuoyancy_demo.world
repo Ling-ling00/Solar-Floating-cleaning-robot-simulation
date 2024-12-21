@@ -7,7 +7,7 @@
 
     <include>
       <uri>model://test2</uri>
-      <pose>0.5 0 0.0 0 0 0</pose>
+      <pose>0 0 0 0 0 0</pose>
     </include>
 
   <!-- <include>
@@ -70,17 +70,27 @@
       <pose>2.5 -1.0 0.08 0 0 0</pose>
     </include> -->
 
+    <include>
+      <uri>model://path1</uri>
+      <pose>0 0.8 0 0 0 0</pose>
+    </include>
+
+    <include>
+      <uri>model://path2</uri>
+      <pose>0 -0.8 0 0 0 0</pose>
+    </include>
+
      <!-- buoyancy plugin -->
 
 
-    <plugin name="freefloating_gazebo_fluid" filename="libfreefloating_gazebo_fluid.so">
-              <descriptionParam>robot_description</descriptionParam>
-              <fluidTopic>current</fluidTopic>
-              <alwaysOn>true</alwaysOn>
-              <surface>0 0 0</surface>
-              <updateRate>.001</updateRate>
-          </plugin>                          
-    
+    <!-- <plugin name="freefloating_gazebo_fluid" filename="libfreefloating_gazebo_fluid.so">
+      <descriptionParam>robot_description</descriptionParam>
+      <fluidTopic>current</fluidTopic>
+      <alwaysOn>true</alwaysOn>
+      <surface>0 0 0</surface>
+      <updateRate>.001</updateRate>
+    </plugin>                          
+     -->
 
   </world>
 </sdf>

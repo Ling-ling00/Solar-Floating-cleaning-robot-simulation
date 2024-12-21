@@ -46,6 +46,20 @@ def generate_launch_description():
         launch_arguments={"use_sim_time": "true"}.items()
     )
 
+    # Include the robot description launch
+    path = IncludeLaunchDescription(
+        PythonLaunchDescriptionSource(
+            [
+                os.path.join(
+                    get_package_share_directory(package_name),
+                    "launch",
+                    "path.launch.py"
+                )
+            ]
+        ),
+        launch_arguments={"use_sim_time": "true"}.items()
+    )
+
     # Launch Gazebo with the specific world
     gazebo2 = IncludeLaunchDescription(
         PythonLaunchDescriptionSource(
@@ -79,19 +93,47 @@ def generate_launch_description():
             "world": world_file_path
         }.items()
     )
-    # Spawn robot in Gazebo
+    
+
     spawn_entity = Node(
         package="gazebo_ros",
         executable="spawn_entity.py",
         arguments=[
             "-topic", "/robot/robot_description",
             "-entity", "robot",
-            "-x", "1.0",
+            "-x", "-10.0",
             "-y", "0.0",
-            "-z", "0.1"
+            "-z", "0.2"
         ],
         output="screen"
     )
+
+    spawn_entity2 = Node(
+        package="gazebo_ros",
+        executable="spawn_entity.py",
+        arguments=[
+            "-topic", "/walk_path/robot_description",
+            "-entity", "walk_path",
+            "-x", "0.0",
+            "-y", "0.8",
+            "-z", "0.0"
+        ],
+        output="screen"
+    )
+
+    spawn_entity3 = Node(
+        package="gazebo_ros",
+        executable="spawn_entity.py",
+        arguments=[
+            "-topic", "/walk_path/robot_description",
+            "-entity", "walk_path2",
+            "-x", "0.0",
+            "-y", "-0.8",
+            "-z", "0.0"
+        ],
+        output="screen"
+    )
+
 
     # Launch RViz
     rviz = Node(
@@ -119,9 +161,13 @@ def generate_launch_description():
         [
             gazebo,
             spawn_entity,
+            # spawn_entity2,
+            # spawn_entity3,
             rsp,
+            path,
             rviz,
             joint_state_broadcaster_spawner,
-            robot_controller_spawner
+            robot_controller_spawner,
+            
         ]
     )

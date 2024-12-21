@@ -19,11 +19,11 @@ class LidarReadNode(Node):
         self.create_subscription(LaserScan, "/lidar/out", self.lidar_callback, 10)
 
         #variable
-        self.max_speed = 100.0
-        self.kp = [65.0, 2210.0]
+        self.max_speed = 20.0
+        self.kp = [3.0, 10.0]
         self.stack_pos = []
         self.deg = [270, 90]
-        self.dh = [0.35, 0.50]
+        self.dh = [0.57, 0.495]
         self.prev_distance = [0,0]
         self.side = 'none'
 
@@ -33,40 +33,40 @@ class LidarReadNode(Node):
         a = -1
 
         #if have solarcell below
-        # if abs(distance[0]) >= 0.01 and abs(distance[1]) >= 0.01:
+        if abs(distance[0]) != np.inf and abs(distance[1]) != np.inf:
 
             # check if solarcell shift left or right
-        error = distance[0] + distance[1]
-        if abs(error) < 0.1:
-            # if solarcell in the middle
-            error = distance[0] - self.prev_distance[0]
-            #check if solarcell rotate
-            if abs(error) > 0.001:
+            error = distance[0] + distance[1]
+            if abs(error) < 0.1:
+                # if solarcell in the middle
+                error = distance[0] - self.prev_distance[0]
+                #check if solarcell rotate
+                if abs(error) > 0.001 and abs(error) < 0.01:
 
-                #กันเวลาหมุนกลับแล้วค่า previous ไม่ได้เปลี่ยนเพราะเดินหน้าปกติ ให้เดินหน้าปกติก่อนค่อยหมุนใหม่
-                if (self.side != 'left' and error > 0) or (self.side != 'right' and error < 0):
-                    v = [-(self.kp[1] * error), +(self.kp[1] * error)]
-                    if error > 0:
-                        self.side = 'right'
+                    #กันเวลาหมุนกลับแล้วค่า previous ไม่ได้เปลี่ยนเพราะเดินหน้าปกติ ให้เดินหน้าปกติก่อนค่อยหมุนใหม่
+                    if (self.side != 'left' and error < 0) or (self.side != 'right' and error > 0):
+                        v = [(self.kp[1] * error), -(self.kp[1] * error)]
+                        if error > 0:
+                            self.side = 'right'
+                        else:
+                            self.side = 'left'
                     else:
-                        self.side = 'left'
+                        v = [self.max_speed, self.max_speed]
                 else:
                     v = [self.max_speed, self.max_speed]
+                    self.side = 'none'
             else:
-                v = [self.max_speed, self.max_speed]
+                v = [self.max_speed-(self.kp[0] * error), self.max_speed+(self.kp[0] * error)]
                 self.side = 'none'
-        else:
-            v = [self.max_speed-(self.kp[0] * error), self.max_speed+(self.kp[0] * error)]
-            self.side = 'none'
 
-        #check limit real max speed = 1.5 * max_speed
-        if abs(v[0]) > self.max_speed*1.5:
-            v[0] = self.max_speed * 1.5 * (v[0]/abs(v[0]))
-        if abs(v[1]) > self.max_speed*1.5:
-            v[1] = self.max_speed * 1.5 * (v[1]/abs(v[1]))
-        self.prev_distance = distance
-        # else:
-        #     v = [0.0, 0.0]
+            #check limit real max speed = 1.5 * max_speed
+            if abs(v[0]) > self.max_speed*1.5:
+                v[0] = self.max_speed * 1.5 * (v[0]/abs(v[0]))
+            if abs(v[1]) > self.max_speed*1.5:
+                v[1] = self.max_speed * 1.5 * (v[1]/abs(v[1]))
+            self.prev_distance = distance
+        else:
+            v = [self.max_speed, self.max_speed]
         msg.data = [a*x/10 for x in [v[0], v[0], -v[1], -v[1]]]
         self.cmd_vel_publisher.publish(msg)
         self.get_logger().info(f'Publishing speed data =  {v}')
@@ -106,6 +106,7 @@ class LidarReadNode(Node):
             self.lim_dy = self.lim_dy[:] + self.dy[0:last*2]
 
     def distance_check(self, dy, dx, dh):
+        print(dy)
         distance = [0,0]
         range_left = [dh[0], dh[1]]
         range_right = [dh[0], dh[1]]
@@ -143,7 +144,7 @@ class LidarReadNode(Node):
         d = self.distance_check(self.lim_dy, self.lim_dx, self.dh)
         self.cmd_pub(d)
         self.publish_lidar_data(msg, self.deg)
-        self.brush_check(self.lim_dy, self.dh)
+        # self.brush_check(self.lim_dy, self.dh)
     
     def brush_check(self, dy, dh):
         if ((dy[len(dy)//2] > max(dh) or dy[len(dy)//2] is None) and 
