@@ -1,15 +1,15 @@
 # **Introduction**
 This project is inspired by an ongoing real-world research initiative involving autonomous robots designed to navigate solar floating platforms installed on buoyant structures in the middle of Sirindhorn Dam. The integration of autonomous robotic systems aims to enhance their maintenance, monitoring, and operational efficiency
 
-![alt text](image.png)
+![alt text](pic/image.png)
 
 In this project, we recreate this scenario in a simulated environment using ROS2 and Gazebo. The simulation is designed to replicate real-world dynamics as accurately as possible, incorporating realistic physics, including the buoyancy effects of the floating buoys. The robot is equipped with virtual sensors such as a 2D LiDAR and an IMU. These sensors provide feedback on the robot's movement and enable precise control for navigation and compensation of the robot movement within the floating solar platform environment
  
-![alt text](image-1.png)
+![alt text](pic/image-1.png)
 
 The objective of this simulation is to create a virtual testing ground for developing and refining algorithms for autonomous navigation, path planning, and environmental interaction. By closely mirroring the conditions of the Sirindhorn Dam, this project provides a valuable platform for testing and improving the performance of the robotic system before real-world deployment.
 
- ![alt text](image-2.png)
+ ![alt text](pic/image-2.png)
 
 # **Set up and installation**
 Before starting, ensure you have the following installed: <br>
@@ -83,7 +83,7 @@ https://github.com/user-attachments/assets/1365718d-9e7d-4cc0-9009-030b1e0e45ab
 
 # **System architect**
 
-![alt text](image-4.png)
+![alt text](pic/image-4.png)
 
 ## **Robot State Publisher**
 -	Publishes the /tf topic by taking the robot.xacro URDF model and computing the transforms between the robot’s links.
@@ -108,61 +108,63 @@ https://github.com/user-attachments/assets/1365718d-9e7d-4cc0-9009-030b1e0e45ab
 -	In this project we simulate robot mass and inertia approximately to real robot by follow the properties in CAD
 Robot body mass and inertia
 
-  ![alt text](image-5.png)
+  ![alt text](pic/image-5.png)
 
-  ![alt text](image-6.png)
+  ![alt text](pic/image-6.png)
 
 Robot wheel mass
 
- ![alt text](image-7.png)
+ ![alt text](pic/image-7.png)
 
 ## **Sensor**
 -	To visualize the position and rotation of robot we visualize 2 sesors
 -	**LiDAR** position of LiDAR is at the top of robot and look down to detect the edge of solar cell panel.
+
 Data that LiDAR can read visualize in RVIZ
 
- ![alt text](image-8.png)
+ ![alt text](pic/image-8.png)
 
 Position of robot in simulation 
 
-![alt text](image-9.png)
+![alt text](pic/image-9.png)
 
 -	**IMU** position of imu is at the base of robot to calculate rotation around Y-axis for report that is robot in the hole between floating.
+
 Data that IMU can read visualize in RVIZ
 
-![alt text](image-10.png)
+![alt text](pic/image-10.png)
   
 Position of robot in simulation
 
- ![alt text](image-11.png)
+ ![alt text](pic/image-11.png)
 ## **World**
 -	In the world file will be include 3 SDF file 
  
-![alt text](image-12.png)
+![alt text](pic/image-12.png)
 
 ## test2 or floating buoy and Solar panel 
 
 This file will consist of floating buoy and Solar panel in sdf form 
 
- ![alt text](image-13.png)
+ ![alt text](pic/image-13.png)
  
  with the plugin freebuoyancy_gazebo from libraly libfreebuoyancy_gazebo 
  
-![alt text](image-14.png)
+![alt text](pic/image-14.png)
 
 Visualize of test2.sdf 
 
- ![alt text](image-15.png)
+ ![alt text](pic/image-15.png)
 
 ## Path1 and path2 
 Is the path ways for the robot movement that will be place above the floating buoy.In this sdf file will not include the buoyancy plugin 
 
- ![alt text](image-16.png)
+ ![alt text](pic/image-16.png)
 
 
 Visualize of path1 and path2 that are on top of the  test2.sdf 
 
- ![alt text](image-17.png)
+ ![alt text](pic/image-17.png)
 
 # **Demo & How to use** 
 ## **World launch**
@@ -172,7 +174,7 @@ ros2 launch lidar_gazebo test_world.launch.py
 ```
 The result of the command will open the gazebo world with only the solar panel and floating buoy 
 
- ![alt text](image-18.png)
+ ![alt text](pic/image-18.png)
 
 ## **World with robot launch**
 To launch solar panel and floating buoy with robot run this command
@@ -180,7 +182,7 @@ To launch solar panel and floating buoy with robot run this command
 ros2 launch lidar_gazebo gazebo.launch.py
 ```
 
- ![alt text](image-19.png)
+ ![alt text](pic/image-19.png)
 
 ## **Controller**
 To control robot with controller
