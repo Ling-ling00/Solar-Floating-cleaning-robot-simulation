@@ -59,29 +59,20 @@ If the installation successful, The world that replicate the Solar-floating will
 
 ![alt text](image-3.png)
  
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+Then installed all the dependency of this project by this command 
 
 ```
 sudo apt install ros-humble-gazebo-ros-pkgs
 ```
+```
 sudo apt install ros-humble-robot-state-publisher
+```
+```
 sudo apt install ros-humble-controller-manager
+```
+```
 sudo apt install ros-humble-gazebo-ros2-control
-
+```
 # **System architect**
 
 # **Technical detail**
