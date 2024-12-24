@@ -122,6 +122,7 @@ Robot wheel mass
   ![alt text](pic/image-21.png)
 
 - from URDF
+<br>
   ![alt text](pic/image-7.png)
 
 ## **Sensor**
