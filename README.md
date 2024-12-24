@@ -145,6 +145,13 @@ Data that IMU can read visualize in RVIZ
 Position of robot in simulation
 
  ![alt text](pic/image-11.png)
+
+- **Sensor in RVIZ when robot move**
+
+
+https://github.com/user-attachments/assets/03a8ee77-5b48-41c8-a204-88570e8a8162
+
+
 ## **World**
 -	In the world file will be include 3 SDF file 
  
@@ -183,6 +190,11 @@ ros2 launch lidar_gazebo test_world.launch.py
 The result of the command will open the gazebo world with only the solar panel and floating buoy 
 
  ![alt text](pic/image-18.png)
+ 
+
+https://github.com/user-attachments/assets/1561b423-06fe-4b72-acf7-d6714c68a1a9
+
+
 
 ## **World with robot launch**
 To launch solar panel and floating buoy with robot run this command
@@ -197,6 +209,8 @@ To control robot with controller
 ```
 ros2 run solar lidar_read_sim.py
 ```
+The result of the command will control the robot to middle of solar cell panel.
+
 To control robot with fixed speed (v(l) is left front and back wheel speed in forward direction and v(r) is right front and back wheel speed in forward direction)
 ```
 ros2 topic pub /velocity_controllers/commands std_msgs/msg/Float64MultiArray "layout:
@@ -204,6 +218,10 @@ ros2 topic pub /velocity_controllers/commands std_msgs/msg/Float64MultiArray "la
   data_offset: 0
 data: [-v(l), -v(l), v(r), v(r)]"
 ``` 
+The result of the command will control the robot with fixed velocity.
+
+https://github.com/user-attachments/assets/7f2d34ed-a98f-44a5-b9d9-cc468a4d6c4c
+
 
 # **Validation**
 
