@@ -28,9 +28,7 @@ ament_python_install_package(${PROJECT_NAME})
 # Install Python executables
 install(PROGRAMS
   scripts/dummy_script.py
-  scripts/lidar_read.py
   scripts/lidar_read_sim.py
-  scripts/robot_control.py
   scripts/imu_read_sim.py
   DESTINATION lib/${PROJECT_NAME}
 )
