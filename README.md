@@ -162,7 +162,7 @@ https://github.com/user-attachments/assets/03a8ee77-5b48-41c8-a204-88570e8a8162
 
 ## test2 or floating buoy and Solar panel 
 
-This file will consist of floating buoy and Solar panel in sdf form 
+This file will consist of floating buoy and Solar panel 10 buoy in sdf form 
 
  ![alt text](pic/image-13.png)
  
@@ -267,9 +267,9 @@ movement graph
 
 with out the buoyancy ,the robot movement in XZ axis when move along the floating bouy will be that pattern with every step of the floating bouy is similar to each other
 
+# **Conclusion**
 
-
-# **Future plan**
+This project can archieve every objective that been expected .The floating buoy physic can mimic the behavior of the real floating buoy that float on water and the robot can move along these floating buoy with out fall off the buoy with controller .
 
 
 
