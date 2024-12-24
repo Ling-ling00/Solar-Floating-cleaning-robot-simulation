@@ -20,10 +20,10 @@ class LidarReadNode(Node):
 
         #variable
         self.max_speed = 20.0
-        self.kp = [3.0, 10.0]
+        self.kp = [5.0, 10.0]
         self.stack_pos = []
         self.deg = [270, 90]
-        self.dh = [0.57, 0.495]
+        self.dh = [0.56, 0.50]
         self.prev_distance = [0,0]
         self.side = 'none'
 
