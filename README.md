@@ -19,8 +19,8 @@ Before starting, ensure you have the following installed: <br>
     •	Python: 3.10+<br>
     •	colcon: For building the ROS 2 workspace<br><br>
 Install ROS 2 and Gazebo by following their official installation guides:<br>
-    •	ROS 2 Installation Guide<br>
-    •	Gazebo Installation Guide<br>
+    •	[ROS 2 Installation Guide](https://docs.ros.org/en/humble/Installation.html)<br>
+    •	[Gazebo Installation Guide](https://classic.gazebosim.org/tutorials?tut=install_ubuntu)<br>
 <br>
 Then clone the library repository that we going to use in the desire directory
 
