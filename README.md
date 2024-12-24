@@ -207,12 +207,16 @@ ros2 launch lidar_gazebo gazebo.launch.py
 
  ![alt text](pic/image-19.png)
 
-## **Controller**
+## **Control**
+
+### with controller 
 To control robot with controller
 ```
 ros2 run solar lidar_read_sim.py
 ```
 The result of the command will control the robot to middle of solar cell panel.
+
+### Manual control (with out controller)
 
 To control robot with fixed speed (v(l) is left front and back wheel speed in forward direction and v(r) is right front and back wheel speed in forward direction)
 ```
