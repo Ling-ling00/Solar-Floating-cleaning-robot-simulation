@@ -10,7 +10,7 @@
       <pose>0 0 0 0 0 0</pose>
     </include>
 
-    <include>
+    <!-- <include>
       <uri>model://path1</uri>
       <pose>0 0.8 0 0 0 0</pose>
     </include>
@@ -18,7 +18,7 @@
     <include>
       <uri>model://path2</uri>
       <pose>0 -0.8 0 0 0 0</pose>
-    </include>
+    </include> -->
 
   </world>
 </sdf>
