@@ -87,11 +87,11 @@ If the installation successful, The world that replicate the Solar-floating will
 -	Uses Gazebo as the physics engine to visualize and simulate buoyancy effects and the robot’s movements within the world.
 ## **Gazebo Plugins**
 -	**Sensor Plugins**
--	Publish data from simulated IMU and LiDAR sensors via the topic imu/out and lidar/out.
+    -	Publish data from simulated IMU and LiDAR sensors via the topic imu/out and lidar/out.
 -	**ROS 2 Control Plugin**
--	Apply control of robot wheels’ velocity via /velocity_controllers/commands topic using ROS 2 controllers.
+    -	Apply control of robot wheels’ velocity via /velocity_controllers/commands topic using ROS 2 controllers.
 -	**Freebuoyancy Plugin**
--	Simulates buoyancy effects in underwater or floating scenarios.
+    -	Simulates buoyancy effects in underwater or floating scenarios.
 ## **Lidar_read_node**
 -	Subscribes to the /lidar/out topic and calculates the error in rotation and position offset. And uses a P-controller to correct the robot’s position and rotation accordingly by publish /velocity_controllers/commands topic.
 ## **RVIZ**
