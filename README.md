@@ -77,6 +77,26 @@ If the installation successful, The world that replicate the Solar-floating will
  
 # **System architect**
 
+![alt text](image-4.png)
+
+## **Robot State Publisher**
+-	Publishes the /tf topic by taking the robot.xacro URDF model and computing the transforms between the robot’s links.
+## **World**
+-	Simulates a floating solar cell panel in Gazebo by combining SDF models with the FreeBuoyancy plugin.
+## **Gazebo Simulation**
+-	Uses Gazebo as the physics engine to visualize and simulate buoyancy effects and the robot’s movements within the world.
+## **Gazebo Plugins**
+-	**Sensor Plugins**
+-	Publish data from simulated IMU and LiDAR sensors via the topic imu/out and lidar/out.
+-	**ROS 2 Control Plugin**
+-	Apply control of robot wheels’ velocity via /velocity_controllers/commands topic using ROS 2 controllers.
+-	**Freebuoyancy Plugin**
+-	Simulates buoyancy effects in underwater or floating scenarios.
+## **Lidar_read_node**
+-	Subscribes to the /lidar/out topic and calculates the error in rotation and position offset. And uses a P-controller to correct the robot’s position and rotation accordingly by publish /velocity_controllers/commands topic.
+## **RVIZ**
+-	Visualizes the robot’s movement, the IMU data in the robot’s base frame, and the LiDAR data in real-time.
+
 # **Technical detail**
 -	ใส่  part detail ที่ได้จาก solid work มาใส่กับหุ่น
 -	รายละเอียด sensor 2 อัน
