@@ -181,7 +181,7 @@ ros2 launch lidar_gazebo gazebo.launch.py
 ```
 
  ![alt text](image-19.png)
- 
+
 ## **Controller**
 To control robot with controller
 ```
@@ -195,9 +195,6 @@ ros2 topic pub /velocity_controllers/commands std_msgs/msg/Float64MultiArray "la
 data: [-v(l), -v(l), v(r), v(r)]"
 ``` 
 
-# **Demo & How to use** 
--	วิธี run world เปล่า เล่น buoyancy 
--	Run เต็ม
 # **Validation**
 -	Video + 3d graph เทียบารเคลื่อนที่ 
 # **Future plan**
