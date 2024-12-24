@@ -106,15 +106,23 @@ https://github.com/user-attachments/assets/1365718d-9e7d-4cc0-9009-030b1e0e45ab
 # **Technical detail**
 ## **Robot**
 -	In this project we simulate robot mass and inertia approximately to real robot by follow the properties in CAD
-Robot body mass and inertia
 
+Robot body mass and inertia
+- from Solidworks
+  ![alt text](pic/image-20.png)
+
+- from URDF
   ![alt text](pic/image-5.png)
 
   ![alt text](pic/image-6.png)
 
 Robot wheel mass
 
- ![alt text](pic/image-7.png)
+- from Solidworks
+  ![alt text](pic/image-21.png)
+
+- from URDF
+  ![alt text](pic/image-7.png)
 
 ## **Sensor**
 -	To visualize the position and rotation of robot we visualize 2 sesors
