@@ -219,7 +219,7 @@ ros2 topic pub /velocity_controllers/commands std_msgs/msg/Float64MultiArray "la
   data_offset: 0
 data: [-v(l), -v(l), v(r), v(r)]"
 ``` 
-The result of the command will control the robot with fixed velocity.
+The result of the command will control the robot with fixed velocity (run with out controller).
 
 https://github.com/user-attachments/assets/7f2d34ed-a98f-44a5-b9d9-cc468a4d6c4c
 
