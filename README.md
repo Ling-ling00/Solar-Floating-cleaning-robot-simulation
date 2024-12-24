@@ -12,16 +12,16 @@ The objective of this simulation is to create a virtual testing ground for devel
  ![alt text](image-2.png)
 
 # **Set up and installation**
-Before starting, ensure you have the following installed:
-•	Operating System: Ubuntu 22.04 (recommended)
-•	ROS 2: Humble or compatible version
-•	Gazebo: Fortress or compatible version
-•	Python: 3.10+
-•	colcon: For building the ROS 2 workspace
-Install ROS 2 and Gazebo by following their official installation guides:
-•	ROS 2 Installation Guide
-•	Gazebo Installation Guide
-
+Before starting, ensure you have the following installed: <br>
+•	Operating System: Ubuntu 22.04 (recommended)<br>
+•	ROS 2: Humble or compatible version<br>
+•	Gazebo: Fortress or compatible version<br>
+•	Python: 3.10+<br>
+•	colcon: For building the ROS 2 workspace<br>
+Install ROS 2 and Gazebo by following their official installation guides:<br>
+•	ROS 2 Installation Guide<br>
+•	Gazebo Installation Guide<br>
+<br>
 Then clone the library repository that we going to use in the desire directory
 
 ```
