@@ -101,9 +101,97 @@ If the installation successful, The world that replicate the Solar-floating will
 -	Visualizes the robot’s movement, the IMU data in the robot’s base frame, and the LiDAR data in real-time.
 
 # **Technical detail**
--	ใส่  part detail ที่ได้จาก solid work มาใส่กับหุ่น
--	รายละเอียด sensor 2 อัน
--	รายละเอียด world 
+## **Robot**
+-	In this project we simulate robot mass and inertia approximately to real robot by follow the properties in CAD
+Robot body mass and inertia
+
+  ![alt text](image-5.png)
+
+  ![alt text](image-6.png)
+
+Robot wheel mass
+
+ ![alt text](image-7.png)
+
+## **Sensor**
+-	To visualize the position and rotation of robot we visualize 2 sesors
+-	**LiDAR** position of LiDAR is at the top of robot and look down to detect the edge of solar cell panel.
+Data that LiDAR can read visualize in RVIZ
+
+ ![alt text](image-8.png)
+
+Position of robot in simulation 
+
+![alt text](image-9.png)
+
+-	**IMU** position of imu is at the base of robot to calculate rotation around Y-axis for report that is robot in the hole between floating.
+Data that IMU can read visualize in RVIZ
+
+![alt text](image-10.png)
+  
+Position of robot in simulation
+
+ ![alt text](image-11.png)
+## **World**
+-	In the world file will be include 3 SDF file 
+ 
+![alt text](image-12.png)
+
+## test2 or floating buoy and Solar panel 
+
+This file will consist of floating buoy and Solar panel in sdf form 
+
+ ![alt text](image-13.png)
+ 
+ with the plugin freebuoyancy_gazebo from libraly libfreebuoyancy_gazebo 
+ 
+![alt text](image-14.png)
+
+Visualize of test2.sdf 
+
+ ![alt text](image-15.png)
+
+## Path1 and path2 
+Is the path ways for the robot movement that will be place above the floating buoy.In this sdf file will not include the buoyancy plugin 
+
+ ![alt text](image-16.png)
+
+
+Visualize of path1 and path2 that are on top of the  test2.sdf 
+
+ ![alt text](image-17.png)
+
+# **Demo & How to use** 
+## **World launch**
+To launch the empty world use this command 
+```
+ros2 launch lidar_gazebo test_world.launch.py
+```
+The result of the command will open the gazebo world with only the solar panel and floating buoy 
+
+ ![alt text](image-18.png)
+
+## **World with robot launch**
+To launch solar panel and floating buoy with robot run this command
+```
+ros2 launch lidar_gazebo gazebo.launch.py
+```
+
+ ![alt text](image-19.png)
+ 
+## **Controller**
+To control robot with controller
+```
+ros2 run solar lidar_read_sim.py
+```
+To control robot with fixed speed (v(l) is left front and back wheel speed in forward direction and v(r) is right front and back wheel speed in forward direction)
+```
+ros2 topic pub /velocity_controllers/commands std_msgs/msg/Float64MultiArray "layout:
+  dim: []
+  data_offset: 0
+data: [-v(l), -v(l), v(r), v(r)]"
+``` 
+
 # **Demo & How to use** 
 -	วิธี run world เปล่า เล่น buoyancy 
 -	Run เต็ม
