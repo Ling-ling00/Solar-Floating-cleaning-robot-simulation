@@ -216,6 +216,10 @@ ros2 run solar lidar_read_sim.py
 ```
 The result of the command will control the robot to middle of solar cell panel.
 
+
+https://github.com/user-attachments/assets/39e1069c-cee5-428a-964d-1cc68f3ee2c3
+
+
 ### Manual control (with out controller)
 
 To control robot with fixed speed (v(l) is left front and back wheel speed in forward direction and v(r) is right front and back wheel speed in forward direction)
