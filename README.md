@@ -76,8 +76,11 @@ gazebo worlds/freebuoyancy_demo.world -u
 ```
 If the installation successful, The world that replicate the Solar-floating will appear with realistic buoyancy in each floating buoy
 
-![alt text](image-3.png)
- 
+
+
+https://github.com/user-attachments/assets/1365718d-9e7d-4cc0-9009-030b1e0e45ab
+
+
 # **System architect**
 
 ![alt text](image-4.png)
