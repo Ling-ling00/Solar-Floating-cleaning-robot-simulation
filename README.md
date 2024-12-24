@@ -37,6 +37,9 @@ sudo apt install ros-humble-controller-manager
 ```
 sudo apt install ros-humble-gazebo-ros2-control
 ```
+```
+sudo apt-get install ros-humble-imu-tools
+```
 
 Then clone the library repository that we going to use in the desire directory
 
