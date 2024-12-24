@@ -206,10 +206,47 @@ data: [-v(l), -v(l), v(r), v(r)]"
 ``` 
 
 # **Validation**
--	Video + 3d graph เทียบารเคลื่อนที่ 
+
+## with controller vs with out controller
+
+### with controller 
+
+![alt text](pic/image-22.png)
+
+With the feedback that is read from the sensor (lidar and IMU) and feed that input to the controller. We plot the movement of the robot to the graph. from the graph XY axis we will see that the robot trajectory will tend to converge by compensate each side of the wheel velocity to steady point that are the middle of the floating buoy 
+
+### without controller
+
+![alt text](pic/image-23.png)
+
+From the graph XY axis we will see that the robot trajectory has a stack error and will converge to left or right side and at some point, if that stack error is high enough the robot will fall of the buoy
+
+## World with buoyancy and with out buoyancy 
+
+### with buoyancy 
+
+![alt text](pic/image-24.png)
+
+with the buoyancy ,the robot movement in XZ axis when move along the floating bouy will not be that pattern and when the robot move and fall on the floating bouy the grpah will show the movement that act like the water wave like in the X axis value -8.0 till -9.0 that wave is the sign that indicate the wave that similar to water wave 
+
+### with out buoyancy
+
+world with plane 
+
+![alt text](pic/image-26.png)
+
+movement graph
+
+![alt text](pic/image-25.png)
+
+
+with out the buoyancy ,the robot movement in XZ axis when move along the floating bouy will be that pattern with every step of the floating bouy is similar to each other
+
+
+
 # **Future plan**
 
 
-# **Contributor**
+
 
 
