@@ -22,10 +22,26 @@ Install ROS 2 and Gazebo by following their official installation guides:<br>
     •	[ROS 2 Installation Guide](https://docs.ros.org/en/humble/Installation.html)<br>
     •	[Gazebo Installation Guide](https://classic.gazebosim.org/tutorials?tut=install_ubuntu)<br>
 <br>
+
+Then installed all the dependency of this project by this command 
+
+```
+sudo apt install ros-humble-gazebo-ros-pkgs
+```
+```
+sudo apt install ros-humble-robot-state-publisher
+```
+```
+sudo apt install ros-humble-controller-manager
+```
+```
+sudo apt install ros-humble-gazebo-ros2-control
+```
+
 Then clone the library repository that we going to use in the desire directory
 
 ```
-cd ~ | git clone https://github.com/Ling-ling00/Solar-Floating-cleaning-robot-simulation.git -b floating Lib_ Solar-Floating-cleaning-robot-simulation
+cd ~ | git clone https://github.com/Ling-ling00/Solar-Floating-cleaning-robot-simulation.git -b floating Lib_Solar-Floating-cleaning-robot-simulation
 ```
 then build the workspace with this command  
 ```
@@ -59,20 +75,6 @@ If the installation successful, The world that replicate the Solar-floating will
 
 ![alt text](image-3.png)
  
-Then installed all the dependency of this project by this command 
-
-```
-sudo apt install ros-humble-gazebo-ros-pkgs
-```
-```
-sudo apt install ros-humble-robot-state-publisher
-```
-```
-sudo apt install ros-humble-controller-manager
-```
-```
-sudo apt install ros-humble-gazebo-ros2-control
-```
 # **System architect**
 
 # **Technical detail**
