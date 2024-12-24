@@ -112,6 +112,8 @@ Robot body mass and inertia
   ![alt text](pic/image-20.png)
 
 - from URDF
+<br>
+
   ![alt text](pic/image-5.png)
 
   ![alt text](pic/image-6.png)
@@ -122,7 +124,7 @@ Robot wheel mass
   ![alt text](pic/image-21.png)
 
 - from URDF
-<br>
+
   ![alt text](pic/image-7.png)
 
 ## **Sensor**
