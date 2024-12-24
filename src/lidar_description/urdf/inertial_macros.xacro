@@ -27,6 +27,7 @@
 
 
     <xacro:macro name="inertial_cylinder" params="mass length radius *origin">
+    
         <inertial>
             <xacro:insert_block name="origin"/>
             <mass value="${mass}" />
