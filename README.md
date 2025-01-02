@@ -281,7 +281,7 @@ In 23 December 2024 ,Our research team been put the robot to test at the real en
 
 https://github.com/user-attachments/assets/5cc6fc21-905b-403a-af68-c51860db9f0b
 
-The test result indicate that the result from the simulation about the weight , inertia and movement calculation of the is right because the robot can navigated savly along the floating bouy but in this demostration we did not in clude the algorithm that will compensate both of the robot wheel as it was show in the simulation so sometime the result of the robot movement can be struct at some point on the floating buoy 
+The test result indicate that the result from the simulation about the weight , inertia and movement calculation of the simulation is right because the robot can navigated savly along the floating bouy but in this demostration we did not in clude the algorithm that will compensate both of the robot wheel as it was show in the simulation so sometime the result of the robot movement can be struct at some point on the floating buoy 
 
 https://github.com/user-attachments/assets/a0fad740-07c1-40e3-8c39-6f66776aeb29
 
